@@ -1,0 +1,8 @@
+Deck would be a list of IDs
+Pros:
+-Space
+-Dealing with just numbers could be easier to do checks on
+Cons:
+-More complicated
+-You have to
+Deck would be a list of card objects

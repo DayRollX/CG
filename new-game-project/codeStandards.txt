@@ -1,0 +1,4 @@
+Variables = camel-case (lower case leading)
+Functions = snake-case (no upper casing)
+System Functions = snake-case (no upper casing, leading '_')
+Class naming = camel-case (upper case leading)

@@ -1,0 +1,63 @@
+Priority list
+* Plan pool (the cards that were used in the planning phase)
+* Block turn before getting hit
+* Weapon Attack
+* Load Enemy Deck
+* Win/Loss on 0 health of enemy or hero
+* Shuffling Cards
+* Hover in front when grabbing
+* hover card - grow when hovering
+* hover card - shrink when hover off
+* sorting card (rearranging hand)
+* hand display (curved display)
+* Card view (examining a card)
+* Planning Point View (Viewing what's cards are in your planning pool)
+* Cards left in deck display
+* Cards in discard display
+* Monster on hit Health effects
+* Weapon On Attack Effect
+* Weapon Critical health Special Effects
+* Discard view (Viewing the graveyard)
+* On hit triggers for player
+
+
+
+Done
+* turn determiner
+* turn logic
+* ending turn
+* grabbing cards
+* Basic CardSystem
+* Using cards to do -1 health to enemy
+* Enemy hits hero -1 health on their main turn
+* Create hand
+* Card Spawning (temp)
+* Card hand spacing
+* removing cards from hand
+* Card hand indexing
+* adding card to hand (temp)
+* Plan phase
+* Plan turn (Stop and wait till end turn)
+* Add "Planning" points
+* "Plan" a card to add to "Planning" Counter (Card cost)
+* Card Cost
+* Plan Point spending
+* Not being able to use a card if you don't have the right amount of PP
+* Planning points regenerating at the beginning of player's turn
+* Temp Deck Maker
+* adding card to hand (starting hand)
+* Deck queue
+* Making a scalable card system
+	* In the card object spawn a card based on ID given to card object
+	* Card effects need to be usable by card object
+* Add 3 cards
+* Temp Load Deck at start of game
+* adding card to hand (on draw)
+* Discard queue
+* Temp Discard view
+* Life Queue
+* Deck to Life System
+* On hit get a card
+* When hit get top card of life
+* Life System (cards from deck go to it)
+* "Using card" system when they are played

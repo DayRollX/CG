@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://bcjyki4qx3k6m"]
+
+[ext_resource type="Script" uid="uid://nkocb6vtuyro" path="res://Cards/Card.gd" id="1_14i2c"]
+[ext_resource type="Script" uid="uid://c2nupy6vcl8dj" path="res://CardEffects/CardEffect.gd" id="1_yca7x"]
+[ext_resource type="Script" uid="uid://ckbce0ohp7p18" path="res://CardEffects/PlanRampEffect.gd" id="2_yca7x"]
+
+[sub_resource type="Resource" id="Resource_qy4d8"]
+script = ExtResource("2_yca7x")
+rampAmount = 1
+rested = false
+effect_type = 0
+target_type = 0
+requires_target = false
+description = ""
+metadata/_custom_type_script = "uid://ckbce0ohp7p18"
+
+[resource]
+script = ExtResource("1_14i2c")
+id = "A00003"
+name = "Plan Ramp"
+description = "A Test ramp card"
+cost = 1
+block = 0
+types = Array[String]([])
+power = 0
+toughness = 0
+effects = Array[ExtResource("1_yca7x")]([SubResource("Resource_qy4d8")])

@@ -1,0 +1,27 @@
+class_name GameEnums
+
+enum PHASE { START, DRAW, PLAN, PRE_MAIN ,MAIN, POST_MAIN, END_TURN }
+
+enum CardType {
+	NONE,
+	CREATURE,
+	SORCERY,
+	INSTANT,
+	LAND,
+	ARTIFACT,
+	ENCHANTMENT
+}
+
+enum TargetType {
+	NONE,
+	PLAYER,
+	MONSTER
+}
+
+enum EffectType {
+	NONE,
+	DEAL_DAMAGE,
+	DRAW_CARD,
+	GAIN_LIFE,
+	GAIN_PLAN
+}
