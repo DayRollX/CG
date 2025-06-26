@@ -1,0 +1,123 @@
+[gd_scene load_steps=13 format=3 uid="uid://dcgvffln1lomp"]
+
+[ext_resource type="Script" path="res://Scenes/Battle/BattleMain.gd" id="1_ry7r7"]
+[ext_resource type="Script" path="res://Scenes/Battle/Logic/Game/GameInitiator.gd" id="2_nlxk0"]
+[ext_resource type="PackedScene" uid="uid://d3tku1sf1evfb" path="res://Scenes/Battle/Player/UI/EndTurnButton/EndTurnButton.tscn" id="3_6yhyh"]
+[ext_resource type="Script" path="res://Scenes/Battle/Logic/Game/GameStateLoop.gd" id="3_trahl"]
+[ext_resource type="Script" path="res://Scenes/Temp/turn_text.gd" id="4_l5avw"]
+[ext_resource type="Script" path="res://Scenes/Battle/Logic/Game/CardSystem.gd" id="4_wjcr6"]
+[ext_resource type="Script" path="res://Scenes/Battle/Enemy/EnemyMain.gd" id="6_fk12b"]
+[ext_resource type="Script" path="res://Scenes/Battle/Player/Player.gd" id="7_e8t26"]
+[ext_resource type="Script" path="res://Scenes/Battle/Player/UI/Hand/Hand.gd" id="9_e6y41"]
+[ext_resource type="Script" path="res://Scenes/Temp/tempCardSpawner.gd" id="10_sam83"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipxn6"]
+size = Vector2(997, 405)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gaeiq"]
+
+[node name="BattleMain" type="Node3D"]
+script = ExtResource("1_ry7r7")
+
+[node name="Game" type="Node" parent="."]
+
+[node name="GameInitiator" type="Node" parent="Game"]
+script = ExtResource("2_nlxk0")
+
+[node name="GameStateLoop" type="Node" parent="Game"]
+script = ExtResource("3_trahl")
+
+[node name="CardSystem" type="Node" parent="Game"]
+script = ExtResource("4_wjcr6")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TurnLabel" type="RichTextLabel" parent="UI"]
+offset_left = 484.0
+offset_top = 39.0
+offset_right = 545.0
+offset_bottom = 67.0
+text = "Turn: "
+
+[node name="TurnText" type="RichTextLabel" parent="UI"]
+offset_left = 535.0
+offset_top = 40.0
+offset_right = 836.0
+offset_bottom = 68.0
+text = "Player"
+script = ExtResource("4_l5avw")
+
+[node name="EndTurnLabel" type="RichTextLabel" parent="UI"]
+offset_left = 1022.0
+offset_top = 280.0
+offset_right = 1129.0
+offset_bottom = 307.0
+text = "End Turn"
+meta_underlined = false
+hint_underlined = false
+
+[node name="EndTurnButton" parent="UI" instance=ExtResource("3_6yhyh")]
+position = Vector2(1053, 312)
+
+[node name="PlayArea" type="Area2D" parent="UI"]
+
+[node name="Shape" type="CollisionShape2D" parent="UI/PlayArea"]
+position = Vector2(534, 289)
+shape = SubResource("RectangleShape2D_ipxn6")
+debug_color = Color(0.120161, 0.612627, 0.590476, 0.788235)
+
+[node name="Hand" type="Node" parent="UI"]
+script = ExtResource("9_e6y41")
+
+[node name="Camera" type="Camera3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -3.33027)
+mesh = SubResource("PlaneMesh_gaeiq")
+
+[node name="Enemy" type="Node" parent="."]
+script = ExtResource("6_fk12b")
+
+[node name="HPLabel" type="RichTextLabel" parent="Enemy"]
+offset_left = 38.0
+offset_top = 19.0
+offset_right = 164.0
+offset_bottom = 59.0
+text = "HP:"
+
+[node name="HP" type="RichTextLabel" parent="Enemy/HPLabel"]
+layout_mode = 0
+offset_left = 35.0
+offset_right = 75.0
+offset_bottom = 40.0
+text = "0"
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource("7_e8t26")
+
+[node name="HPLabel" type="RichTextLabel" parent="Player"]
+offset_left = 35.0
+offset_top = 507.0
+offset_right = 126.0
+offset_bottom = 547.0
+text = "HP: "
+
+[node name="HP" type="RichTextLabel" parent="Player/HPLabel"]
+layout_mode = 0
+offset_left = 30.0
+offset_right = 70.0
+offset_bottom = 40.0
+text = "0
+"
+
+[node name="TempSpawner" type="Node" parent="."]
+script = ExtResource("10_sam83")
+
+[node name="Button" type="Button" parent="TempSpawner"]
+offset_left = 209.0
+offset_top = 14.0
+offset_right = 332.0
+offset_bottom = 65.0
+text = "Spawn Card"
+
+[connection signal="pressed" from="TempSpawner/Button" to="TempSpawner" method="_on_button_pressed"]

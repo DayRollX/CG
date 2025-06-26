@@ -13,8 +13,12 @@ func _ready() -> void:
 	$"../Game/GameStateLoop".connect("planPhase", planTurnPhase)
 	$"../Game/GameStateLoop".connect("preMainPhase", preMainTurnPhase)
 	$"../Game/GameStateLoop".connect("mainPhase", mainTurnPhase)
+	$"../Game/GameStateLoop".connect("interactPhase", interactPhase)
+	$"../Game/GameStateLoop".connect("interactResultPhase", interactResultPhase)
 	$"../Game/GameStateLoop".connect("postMainPhase", postMainTurnPhase)
 	$"../Game/GameStateLoop".connect("endTurnPhase", endTurnPhase)
+
+	
 	pass # Replace with function body.
 
 
@@ -45,6 +49,16 @@ func preMainTurnPhase(target):
 func mainTurnPhase(target):
 	if(target == name):
 		print_debug("Main Phase")
+		endPhaseSignal.emit("")
+		
+func interactPhase(target):
+	if(target == name):
+		print_debug("Interact Phase")
+		endPhaseSignal.emit("")
+		
+func interactResultPhase(target):
+	if(target == name):
+		print_debug("Interact Result Phase")
 		endPhaseSignal.emit("")
 	
 func postMainTurnPhase(target):

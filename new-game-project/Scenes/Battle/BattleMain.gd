@@ -17,10 +17,10 @@ func _process(delta):
 
 func load_all_cards() -> Dictionary:
 	var cards = {}
-	for cardFileName in DirAccess.get_files_at("res://Cards"):
+	for cardFileName in DirAccess.get_files_at("res://Cards/TestCards"):
 		if (cardFileName.get_extension() == "tres"):
 			print(cardFileName)
-			var c = load("res://Cards/"+cardFileName) as Card
+			var c = load("res://Cards/TestCards/"+cardFileName) as Card
 			print("Card being loaded: ")
 			print(c.id)
 			cards[c.id] = c

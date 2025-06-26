@@ -1,8 +1,15 @@
 Priority list
-* Plan pool (the cards that were used in the planning phase)
+* Add block on cards
+* Plan only once per turn limit
 * Block turn before getting hit
+	- Add block mechanism
+	- Need a new phase after an attack for interaction
+	- Need mechanism that lets phase go back to main after interaction phase is over
 * Weapon Attack
+* Enemy Attack Deck
+* Enemy Life Deck
 * Load Enemy Deck
+* Load Enemy Lift Deck
 * Win/Loss on 0 health of enemy or hero
 * Shuffling Cards
 * Hover in front when grabbing
@@ -19,6 +26,8 @@ Priority list
 * Weapon Critical health Special Effects
 * Discard view (Viewing the graveyard)
 * On hit triggers for player
+* Plan pool (the cards that were used in the planning phase)
+
 
 
 

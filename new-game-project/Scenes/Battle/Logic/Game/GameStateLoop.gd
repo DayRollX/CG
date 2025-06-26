@@ -10,6 +10,8 @@ signal drawPhase
 signal planPhase
 signal preMainPhase
 signal mainPhase
+signal interactPhase
+signal interactResultPhase
 signal postMainPhase
 signal endTurnPhase
 
@@ -46,6 +48,12 @@ func phaseDeterminer(override):
 			GameEnums.PHASE.MAIN:
 				postMainPhaseFunc()
 				
+			GameEnums.PHASE.INTERACT:
+				interactResultPhaseFunc()
+				
+			GameEnums.PHASE.INTERACT_RESULT:
+				mainPhaseFunc()
+				
 			GameEnums.PHASE.POST_MAIN:
 				endTurnPhaseFunc()
 				
@@ -61,8 +69,16 @@ func phaseDeterminer(override):
 			postMainPhaseFunc()
 		if (override == "endButton" and currentPlayer == "player") and currentPhase == GameEnums.PHASE.PLAN:
 			preMainPhaseFunc()
+		if (override == "endButton" and currentPlayer == "player") and currentPhase == GameEnums.PHASE.PLAN:
+			preMainPhaseFunc()
 		if (override == "planUsed" and currentPlayer == "player") and currentPhase == GameEnums.PHASE.PLAN:
 			preMainPhaseFunc()
+		if (override == "endButton" and currentPlayer == "enemy") and currentPhase == GameEnums.PHASE.INTERACT:
+			interactResultPhaseFunc()
+		if (override == "interact" and currentPlayer == "enemy") and currentPhase == GameEnums.PHASE.MAIN:
+			interactPhaseFunc()
+		if (override == "end enemy main" and currentPlayer == "enemy"):
+			postMainPhaseFunc()
 		else:
 			print_debug("override with no valid argument")
 			
@@ -94,6 +110,15 @@ func mainPhaseFunc():
 	currentPhase = GameEnums.PHASE.MAIN
 	mainPhase.emit(currentPlayer)
 	pass
+	
+func interactPhaseFunc():
+	currentPhase = GameEnums.PHASE.INTERACT
+	interactPhase.emit(currentPlayer)
+	
+	
+func interactResultPhaseFunc():
+	currentPhase = GameEnums.PHASE.INTERACT_RESULT
+	interactResultPhase.emit(currentPlayer)
 	
 func postMainPhaseFunc():
 	currentPhase = GameEnums.PHASE.POST_MAIN

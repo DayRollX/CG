@@ -99,21 +99,6 @@ offset_right = 75.0
 offset_bottom = 40.0
 text = "0"
 
-[node name="DamageLabel" type="RichTextLabel" parent="Enemy"]
-offset_left = 38.0
-offset_top = 35.0
-offset_right = 210.0
-offset_bottom = 75.0
-text = "Damage: "
-
-[node name="Damage" type="RichTextLabel" parent="Enemy/DamageLabel"]
-layout_mode = 0
-offset_left = 75.0
-offset_top = 1.0
-offset_right = 172.0
-offset_bottom = 26.0
-text = "0"
-
 [node name="Player" type="Node" parent="."]
 script = ExtResource("7_e8t26")
 
