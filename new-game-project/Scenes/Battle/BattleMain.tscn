@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dcgvffln1lomp"]
+[gd_scene load_steps=21 format=3 uid="uid://dcgvffln1lomp"]
 
 [ext_resource type="Script" uid="uid://bcyt6el3ny3c4" path="res://Scenes/Battle/BattleMain.gd" id="1_ry7r7"]
 [ext_resource type="Script" uid="uid://bkgam5nlh61dj" path="res://Scenes/Battle/Logic/Game/GameInitiator.gd" id="2_nlxk0"]
@@ -6,10 +6,8 @@
 [ext_resource type="Script" uid="uid://brv38tbfuxycc" path="res://Scenes/Battle/Logic/Game/GameStateLoop.gd" id="3_trahl"]
 [ext_resource type="Script" uid="uid://podo6yvq8xi3" path="res://Scenes/Temp/turn_text.gd" id="4_l5avw"]
 [ext_resource type="Script" uid="uid://bglj1k72dcfu0" path="res://Scenes/Battle/Logic/Game/CardSystem.gd" id="4_wjcr6"]
-[ext_resource type="Script" uid="uid://cik7k0u2qddlr" path="res://Scenes/Battle/Enemy/EnemyMain.gd" id="6_fk12b"]
 [ext_resource type="Script" uid="uid://csp2357d6y50t" path="res://Scenes/Battle/Player/Player.gd" id="7_e8t26"]
 [ext_resource type="Script" uid="uid://cdqaddjtsaomg" path="res://Scenes/Battle/Player/UI/Hand/Hand.gd" id="9_e6y41"]
-[ext_resource type="Script" uid="uid://d0g8v2imglsk5" path="res://Scenes/Battle/Player/UI/Hand/EnemyHand.gd" id="10_jco8v"]
 [ext_resource type="Script" uid="uid://c3ibenwvm1cdu" path="res://Scenes/Temp/tempCardSpawner.gd" id="10_sam83"]
 [ext_resource type="Script" uid="uid://c3hu21iq0grh4" path="res://Scenes/Battle/Player/UI/Deck/Deck.gd" id="10_ta70i"]
 [ext_resource type="Script" uid="uid://chluwldvw5myi" path="res://Scenes/Temp/tempDeck.gd" id="11_kwgbk"]
@@ -84,47 +82,6 @@ debug_color = Color(0.120161, 0.612627, 0.590476, 0.788235)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -3.33027)
 mesh = SubResource("PlaneMesh_gaeiq")
-
-[node name="Enemy" type="Node" parent="."]
-script = ExtResource("6_fk12b")
-
-[node name="HPLabel" type="RichTextLabel" parent="Enemy"]
-offset_left = 38.0
-offset_top = 19.0
-offset_right = 164.0
-offset_bottom = 59.0
-text = "HP:"
-
-[node name="HP" type="RichTextLabel" parent="Enemy/HPLabel"]
-layout_mode = 0
-offset_left = 35.0
-offset_right = 75.0
-offset_bottom = 40.0
-text = "0"
-
-[node name="DamageLabel" type="RichTextLabel" parent="Enemy"]
-offset_left = 38.0
-offset_top = 35.0
-offset_right = 210.0
-offset_bottom = 75.0
-text = "Damage: "
-
-[node name="Damage" type="RichTextLabel" parent="Enemy/DamageLabel"]
-layout_mode = 0
-offset_left = 75.0
-offset_top = 1.0
-offset_right = 172.0
-offset_bottom = 26.0
-text = "0"
-
-[node name="Deck" type="Node" parent="Enemy"]
-script = ExtResource("10_ta70i")
-
-[node name="Hand" type="Node" parent="Enemy"]
-script = ExtResource("10_jco8v")
-
-[node name="DiscardPile" type="Node" parent="Enemy"]
-script = ExtResource("12_abbxi")
 
 [node name="Player" type="Node" parent="."]
 script = ExtResource("7_e8t26")
