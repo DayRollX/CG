@@ -9,13 +9,13 @@ var deck
 var discard
 var healthArea
 
-var block = 0
-
 var maxPlanningPerTurn = 1
 var currentTimesPlannedOnPlanPhase = 0
 
 var maxPlanningPoints = 0
 var planningPoints = 0
+var canAttack = true
+var timesAbleToAttack = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,6 +25,7 @@ func _ready() -> void:
 	deck = $Deck
 	discard = $DiscardPile
 	healthArea = $HealthArea
+	attackPower = 0
 	update_health()
 	update_planning_plan()
 	update_block()
@@ -35,10 +36,14 @@ func _process(delta: float) -> void:
 	pass
 
 func damage(damageAmount):
-	if(damageAmount > 0):
-		for i in range(0, damageAmount):
-			healthArea.damage(hand)
+	for i in range(0, damageAmount):
+		healthArea.damage(hand)
 			
+	update_health()
+	
+func healthRemoval(removalAmount):
+	for i in range(0, removalAmount):
+		healthArea.removal(hand)
 	update_health()
 	
 func heal(healAmount):
@@ -64,6 +69,15 @@ func mainTurnPhase(target):
 	if(target == name):
 		print_debug("Main Phase")
 		
+func can_attack():
+	return (canAttack and timesAbleToAttack > 0)
+	
+func getAttackPower():
+	return $Weapon.get_attack_power() + attackPower
+	
+func used_attack():
+	timesAbleToAttack = timesAbleToAttack - 1
+		
 func planTurnPhase(target):
 	if(target == name):
 		print_debug("Plan Phase")
@@ -74,6 +88,7 @@ func startTurnPhase(target):
 		print_debug("START TURN PLAYER")
 		update_planning_plan()
 		update_block()
+		timesAbleToAttack = 1
 		endPhaseSignal.emit("")
 		
 func drawTurnPhase(target):
@@ -104,3 +119,5 @@ func heal_plan_points(cost):
 func turn_reset():
 	planningPoints = maxPlanningPoints
 	block = 0
+	attackPower = 0
+	

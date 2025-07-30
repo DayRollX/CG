@@ -22,6 +22,6 @@ func _on_button_pressed() -> void:
 	#var c = Node.new()
 	#c.set_script(cards["A00001"])
 	#s.createCard()
-	h.add_card($"../Game/CardDatabase".get_card("A00001"))
+	h.add_card($"../Game/CardDatabase".get_card("PS1003"))
 
 	pass # Replace with function body.

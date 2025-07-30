@@ -39,6 +39,23 @@ text = "1"
 label_settings = SubResource("LabelSettings_0p0re")
 horizontal_alignment = 2
 
+[node name="BlockLabel" type="Label" parent="."]
+offset_left = -31.0
+offset_top = 24.0
+offset_right = 16.0
+offset_bottom = 47.0
+text = "Block"
+label_settings = SubResource("LabelSettings_luud3")
+
+[node name="Block" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 24.0
+offset_right = 28.0
+offset_bottom = 47.0
+text = "1"
+label_settings = SubResource("LabelSettings_0p0re")
+horizontal_alignment = 2
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

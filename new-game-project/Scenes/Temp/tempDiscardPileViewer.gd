@@ -1,9 +1,11 @@
 extends Node
 
 var d
+var e
 
 func _ready() -> void:
 	d = $"../player/DiscardPile"
+	e = $"../enemy/DiscardPile"
 	pass # Replace with function body.
 
 
@@ -13,7 +15,10 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	print("Discard Pile:")
+	print("Discard Pile (Player):")
 	for card in d.cards:
+		print(card.name)
+	print("Discard Pile (Enemy):")
+	for card in e.cards:
 		print(card.name)
 	pass # Replace with function body.

@@ -1,20 +1,14 @@
+Pre Alpha Demo:
 Priority list
-* Add block on cards
-* Plan only once per turn limit
-* Block turn before getting hit
-	- Add block mechanism
-	- Need a new phase after an attack for interaction
-	- Need mechanism that lets phase go back to main after interaction phase is over
-* Weapon Attack
-* Enemy Attack Deck
-* Enemy Life Deck
-* Load Enemy Deck
-* Load Enemy Lift Deck
+* Create enemy deck from paper version
 * Win/Loss on 0 health of enemy or hero
 * Shuffling Cards
 * Hover in front when grabbing
 * hover card - grow when hovering
 * hover card - shrink when hover off
+* Weapon Card Specials
+* Enemy Life Deck
+* Load Enemy Life Deck
 * sorting card (rearranging hand)
 * hand display (curved display)
 * Card view (examining a card)
@@ -22,12 +16,16 @@ Priority list
 * Cards left in deck display
 * Cards in discard display
 * Monster on hit Health effects
-* Weapon On Attack Effect
-* Weapon Critical health Special Effects
+* Plan only once per turn limit
 * Discard view (Viewing the graveyard)
 * On hit triggers for player
+* Target system
 * Plan pool (the cards that were used in the planning phase)
-
+* Split the cardSystem to not include the "isUsable" function. I think this may need to be in the hand
+* Need to fix "UseCard" it needs to not be so complicated (if enemy logic and all that)
+	- Another issue is that when using cards, if the user is null we break
+* Interaction phase costed cards
+* Fix text on base cards (description, name, all the comments and descriptions need to be updated)
 
 
 
@@ -70,3 +68,14 @@ Done
 * When hit get top card of life
 * Life System (cards from deck go to it)
 * "Using card" system when they are played
+* Add block on cards
+* Block turn before getting hit
+	- Add block mechanism
+	- Need a new phase after an attack for interaction
+	- Need mechanism that lets phase go back to main after interaction phase is over
+	- Getting hit after unsuccessful block
+* Weapon Attack
+	- By default once per turn
+	- Special effects on attack
+* Enemy Attack Deck
+* Load Enemy Deck

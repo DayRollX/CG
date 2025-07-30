@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_lme7y"]
 script = ExtResource("2_axlsb")
-damage_amount = 2
+damage_amount = 1
 effect_type = 0
 target_type = 0
 requires_target = false
@@ -18,9 +18,10 @@ script = ExtResource("1_4a86u")
 id = "A00001"
 name = "Test Attack"
 description = ""
-cost = 0
+cost = 5
 block = 0
 types = Array[String]([])
-power = 0
-toughness = 0
+interactable = false
 effects = Array[ExtResource("1_lme7y")]([SubResource("Resource_lme7y")])
+setups = Array[ExtResource("1_lme7y")]([])
+endOfTurnEffects = Array[ExtResource("1_lme7y")]([])

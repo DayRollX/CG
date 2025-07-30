@@ -2,15 +2,17 @@ extends Node
 
 var cards = []
 var hand
+var discardPile
 
 func _ready():
 	hand = $"../Hand"
+	discardPile = $"../DiscardPile"
 
 func set_deck(givenCards):
 	cards = givenCards
 
 func shuffle():
-	pass
+	cards.shuffle()
 
 
 func remove_top_card():
@@ -27,5 +29,11 @@ func draw():
 
 	pass
 	
+func discard():
+	if(cards.size() > 0):
+		discardPile.add_to_pile(cards.pop_front())
+	else:
+		print("No cards to discard")
+	pass
 func scry():
 	pass

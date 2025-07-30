@@ -22,6 +22,11 @@ func damage(cardLocationAfterDamage):
 		cardLocationAfterDamage.add_card(card)
 	else:
 		print("Dead")
+		
+func removal(cardLocationAfterRemoval):
+	if(cards.size() > 0):
+		var card = cards.pop_front()
+		cardLocationAfterRemoval.add_card(card)
 	
 func get_health_amount():
 	return cards.size()

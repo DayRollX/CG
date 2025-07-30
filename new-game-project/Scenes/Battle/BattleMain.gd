@@ -2,6 +2,14 @@ extends Node
 
 var assets
 
+var cardSets = [
+	"res://Cards/TestCards",
+	"res://Cards/MonsterCards/Flame",
+	"res://Cards/MonsterCards",
+	"res://Cards/PlayerCards/Set1",
+	"res://Cards/CommonCards"
+]
+
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,13 +25,14 @@ func _process(delta):
 
 func load_all_cards() -> Dictionary:
 	var cards = {}
-	for cardFileName in DirAccess.get_files_at("res://Cards/TestCards"):
-		if (cardFileName.get_extension() == "tres"):
-			print(cardFileName)
-			var c = load("res://Cards/TestCards/"+cardFileName) as Card
-			print("Card being loaded: ")
-			print(c.id)
-			cards[c.id] = c
+	for cardSet in cardSets:
+		for cardFileName in DirAccess.get_files_at(cardSet):
+			if (cardFileName.get_extension() == "tres"):
+				print(cardFileName)
+				var c = load(cardSet+"/"+cardFileName) as Card
+				print("Card being loaded: ")
+				print(c.id)
+				cards[c.id] = c
 	return cards
 
 

@@ -1,23 +1,16 @@
 # res://scripts/card.gd
 extends Resource
-class_name Card
+class_name WeaponCard
 @export_category("Identity")
 @export var id: String          # unique card identifier, e.g. "ATK_001"
 @export var name: String
 @export var description: String
 
 @export_category("Gameplay")
-@export var cost: int
-@export var block: int
 @export var types: Array[String]        # e.g. ["Creature", "Elf"]
+@export var power: int = 0              # only meaningful for creatures
+@export var toughness: int = 0
 
-@export var interactable = false
+@export var onAttackEffects: Array[CardEffect]   # list of Effects resources
 
-@export_category("Effects")
-@export var effects: Array[CardEffect]
-@export var setups: Array[CardEffect]
-@export var endOfTurnEffects: Array[CardEffect]
-
-func get_cost():
-	
-	return cost
+@export var specialEffects: Array[CardEffect]   # list of Effects resources

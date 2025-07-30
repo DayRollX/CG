@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://cdyoltm4rcbm"]
+
+[ext_resource type="Script" uid="uid://c2nupy6vcl8dj" path="res://CardEffects/CardEffect.gd" id="1_clbog"]
+[ext_resource type="Script" uid="uid://nkocb6vtuyro" path="res://Cards/Card.gd" id="2_m1f53"]
+[ext_resource type="Script" uid="uid://cdob6c4wc2vok" path="res://CardEffects/AddCardEffect.gd" id="2_uviat"]
+
+[sub_resource type="Resource" id="Resource_scdpx"]
+script = ExtResource("2_uviat")
+CardIDToAdd = "C00001"
+Amount = 5
+effect_type = 0
+target_type = 0
+requires_target = false
+description = ""
+metadata/_custom_type_script = "uid://cdob6c4wc2vok"
+
+[resource]
+script = ExtResource("2_m1f53")
+id = "MF003"
+name = "Scorch"
+description = "Add 5 Burn cards"
+cost = 0
+block = 0
+types = Array[String]([])
+interactable = false
+effects = Array[ExtResource("1_clbog")]([SubResource("Resource_scdpx")])
+setups = Array[ExtResource("1_clbog")]([])
+endOfTurnEffects = Array[ExtResource("1_clbog")]([])

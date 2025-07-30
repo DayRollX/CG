@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://cu2lcllfxfuao"]
+
+[ext_resource type="Script" uid="uid://c2nupy6vcl8dj" path="res://CardEffects/CardEffect.gd" id="1_ahxew"]
+[ext_resource type="Script" uid="uid://nkocb6vtuyro" path="res://Cards/Card.gd" id="2_0g285"]
+[ext_resource type="Script" uid="uid://la1qxm5x3tb8" path="res://CardEffects/DeckHealEffect.gd" id="2_c06xx"]
+
+[sub_resource type="Resource" id="Resource_tortk"]
+script = ExtResource("2_c06xx")
+healAmount = 1
+effect_type = 0
+target_type = 0
+requires_target = false
+description = ""
+metadata/_custom_type_script = "uid://la1qxm5x3tb8"
+
+[resource]
+script = ExtResource("2_0g285")
+id = "PS1003"
+name = "Potion"
+description = "Add the top of your deck to your health"
+cost = 4
+block = 0
+types = Array[String]([])
+interactable = false
+effects = Array[ExtResource("1_ahxew")]([SubResource("Resource_tortk")])
+setups = Array[ExtResource("1_ahxew")]([])
+endOfTurnEffects = Array[ExtResource("1_ahxew")]([])

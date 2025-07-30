@@ -18,7 +18,7 @@ func add_card(givenCard:Card):
 	card.set_card_system(cardSystem)
 	card.set_target_area(playerArea)
 	card.set_id(str(tempCardId))
-	card.set_card_original_position(Vector2(100+(cards.size() * 60),600))
+	card.set_card_original_position(Vector2(100+(cards.size() * 30),300))
 	cards.push_back(card)
 	add_child(card)
 	
@@ -30,6 +30,6 @@ func remove_card(card:Node2D):
 	cards = cards.filter(func(node): return node.id != card.id)
 	print("After removal:", get_all_ids())
 	for selectedCard in range(cards.size()):
-		cards[selectedCard].set_card_original_position(Vector2(100+(selectedCard * 60),600))
+		cards[selectedCard].set_card_original_position(Vector2(100+(selectedCard * 30),600))
 		cards[selectedCard].refresh()
 	

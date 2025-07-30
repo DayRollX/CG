@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="WeaponCard" load_steps=7 format=3 uid="uid://2yfmo5bdeqik"]
+
+[ext_resource type="Script" uid="uid://c2nupy6vcl8dj" path="res://CardEffects/CardEffect.gd" id="1_6403v"]
+[ext_resource type="Script" uid="uid://dvwa758mqfot5" path="res://WeaponCards/WeaponCard.gd" id="2_fnq6f"]
+[ext_resource type="Script" uid="uid://d34fi71jhkwk7" path="res://CardEffects/DrawCardEffect.gd" id="2_vu2wt"]
+[ext_resource type="Script" uid="uid://c6aanhytbtsqx" path="res://CardEffects/NormalAttackEffect.gd" id="3_bvvf5"]
+
+[sub_resource type="Resource" id="Resource_wwv1a"]
+script = ExtResource("2_vu2wt")
+drawAmount = 1
+effect_type = 0
+target_type = 0
+requires_target = false
+description = ""
+metadata/_custom_type_script = "uid://d34fi71jhkwk7"
+
+[sub_resource type="Resource" id="Resource_n2hit"]
+script = ExtResource("3_bvvf5")
+effect_type = 0
+target_type = 0
+requires_target = false
+description = ""
+metadata/_custom_type_script = "uid://c6aanhytbtsqx"
+
+[resource]
+script = ExtResource("2_fnq6f")
+id = "W0001"
+name = ""
+description = ""
+types = Array[String]([])
+power = 0
+toughness = 0
+onAttackEffects = Array[ExtResource("1_6403v")]([SubResource("Resource_wwv1a"), SubResource("Resource_n2hit")])
+specialEffects = Array[ExtResource("1_6403v")]([])

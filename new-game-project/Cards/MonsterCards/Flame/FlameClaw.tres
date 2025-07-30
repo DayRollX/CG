@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Card" load_steps=9 format=3 uid="uid://c6twklvyj7643"]
+
+[ext_resource type="Script" uid="uid://c2nupy6vcl8dj" path="res://CardEffects/CardEffect.gd" id="1_u4c7c"]
+[ext_resource type="Script" uid="uid://nkocb6vtuyro" path="res://Cards/Card.gd" id="2_qtol3"]
+[ext_resource type="Script" uid="uid://cdob6c4wc2vok" path="res://CardEffects/AddCardEffect.gd" id="2_x0jt4"]
+[ext_resource type="Script" uid="uid://c6aanhytbtsqx" path="res://CardEffects/NormalAttackEffect.gd" id="3_fey6y"]
+[ext_resource type="Script" uid="uid://c8utoot3m60bh" path="res://CardEffects/SetupEffects/AttackUpEffect.gd" id="5_qqutl"]
+
+[sub_resource type="Resource" id="Resource_fey6y"]
+script = ExtResource("2_x0jt4")
+CardIDToAdd = "C00001"
+Amount = 2
+effect_type = 0
+target_type = 0
+requires_target = false
+description = ""
+metadata/_custom_type_script = "uid://cdob6c4wc2vok"
+
+[sub_resource type="Resource" id="Resource_sa7kj"]
+script = ExtResource("3_fey6y")
+effect_type = 0
+target_type = 0
+requires_target = false
+description = ""
+metadata/_custom_type_script = "uid://c6aanhytbtsqx"
+
+[sub_resource type="Resource" id="Resource_mx2k1"]
+script = ExtResource("5_qqutl")
+powerUpAmount = 1
+effect_type = 0
+target_type = 0
+requires_target = false
+description = ""
+metadata/_custom_type_script = "uid://c8utoot3m60bh"
+
+[resource]
+script = ExtResource("2_qtol3")
+id = "MF002"
+name = "Flame Claw"
+description = "Add 2 burn cards. Then damage 1."
+cost = 0
+block = 0
+types = Array[String]([])
+interactable = true
+effects = Array[ExtResource("1_u4c7c")]([SubResource("Resource_fey6y"), SubResource("Resource_sa7kj")])
+setups = Array[ExtResource("1_u4c7c")]([SubResource("Resource_mx2k1")])
+endOfTurnEffects = Array[ExtResource("1_u4c7c")]([])

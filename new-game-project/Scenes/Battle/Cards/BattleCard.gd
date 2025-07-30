@@ -45,8 +45,7 @@ func attempt_to_use():
 		print_debug("You are trying use this")
 		emit_signal("used_object")
 		if(cardSystem.useCard(cardData, $".".get_node("Player"), [$".".get_node("Enemy")])):
-			get_parent().remove_card(self)
-			queue_free()
+			remove_card()
 		else:
 			global_position = original_position
 	else:
@@ -84,4 +83,9 @@ func createCard(card):
 func updateCard():
 	$Cost.text = str(cardData.cost)
 	$Name.text = str(cardData.name)
+	$Block.text = str(cardData.block)
 	cost = cardData.cost
+
+func remove_card():
+		get_parent().remove_card(self)
+		queue_free()

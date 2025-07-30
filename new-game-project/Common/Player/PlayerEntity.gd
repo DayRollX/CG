@@ -3,6 +3,9 @@ class_name PlayerEntity
 extends Node
 
 var health = 10
+var attackPower = 0
+var block = 0
+var cardSystem
 
 signal endPhaseSignal
 
@@ -17,6 +20,7 @@ func _ready() -> void:
 	$"../Game/GameStateLoop".connect("interactResultPhase", interactResultPhase)
 	$"../Game/GameStateLoop".connect("postMainPhase", postMainTurnPhase)
 	$"../Game/GameStateLoop".connect("endTurnPhase", endTurnPhase)
+	cardSystem = $"../Game/CardSystem"
 
 	
 	pass # Replace with function body.
@@ -25,6 +29,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func powerup(amount):
+	attackPower = attackPower + amount
+	
+func getAttackPower():
+	return attackPower
+
+func getBlock():
+	return block
 
 func startTurnPhase(target):
 	if(target == name):
@@ -69,4 +82,7 @@ func postMainTurnPhase(target):
 func endTurnPhase(target):
 	if(target == name):
 		print_debug("End Phase")
+		
+		cardSystem.endOfTurnChecks(target)
+		
 		endPhaseSignal.emit("")

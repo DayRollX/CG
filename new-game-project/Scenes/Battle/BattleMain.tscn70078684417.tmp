@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dcgvffln1lomp"]
+[gd_scene load_steps=22 format=3 uid="uid://dcgvffln1lomp"]
 
 [ext_resource type="Script" uid="uid://bcyt6el3ny3c4" path="res://Scenes/Battle/BattleMain.gd" id="1_ry7r7"]
 [ext_resource type="Script" uid="uid://bkgam5nlh61dj" path="res://Scenes/Battle/Logic/Game/GameInitiator.gd" id="2_nlxk0"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://cik7k0u2qddlr" path="res://Scenes/Battle/Enemy/EnemyMain.gd" id="6_fk12b"]
 [ext_resource type="Script" uid="uid://csp2357d6y50t" path="res://Scenes/Battle/Player/Player.gd" id="7_e8t26"]
 [ext_resource type="Script" uid="uid://cdqaddjtsaomg" path="res://Scenes/Battle/Player/UI/Hand/Hand.gd" id="9_e6y41"]
-[ext_resource type="Script" uid="uid://d0g8v2imglsk5" path="res://Scenes/Battle/Player/UI/Hand/EnemyHand.gd" id="10_jco8v"]
 [ext_resource type="Script" uid="uid://c3ibenwvm1cdu" path="res://Scenes/Temp/tempCardSpawner.gd" id="10_sam83"]
 [ext_resource type="Script" uid="uid://c3hu21iq0grh4" path="res://Scenes/Battle/Player/UI/Deck/Deck.gd" id="10_ta70i"]
 [ext_resource type="Script" uid="uid://chluwldvw5myi" path="res://Scenes/Temp/tempDeck.gd" id="11_kwgbk"]
@@ -117,15 +116,6 @@ offset_right = 172.0
 offset_bottom = 26.0
 text = "0"
 
-[node name="Deck" type="Node" parent="Enemy"]
-script = ExtResource("10_ta70i")
-
-[node name="Hand" type="Node" parent="Enemy"]
-script = ExtResource("10_jco8v")
-
-[node name="DiscardPile" type="Node" parent="Enemy"]
-script = ExtResource("12_abbxi")
-
 [node name="Player" type="Node" parent="."]
 script = ExtResource("7_e8t26")
 
@@ -154,7 +144,7 @@ text = "Planning: "
 [node name="PP" type="RichTextLabel" parent="Player/PlanningLabel"]
 layout_mode = 0
 offset_left = 81.0
-offset_right = 166.0
+offset_right = 121.0
 offset_bottom = 40.0
 text = "11"
 
@@ -168,7 +158,7 @@ text = "Block: "
 [node name="PP" type="RichTextLabel" parent="Player/BlockLabel"]
 layout_mode = 0
 offset_left = 81.0
-offset_right = 142.0
+offset_right = 121.0
 offset_bottom = 40.0
 text = "11"
 
