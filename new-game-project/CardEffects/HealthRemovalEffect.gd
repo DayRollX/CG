@@ -9,7 +9,7 @@ func _init():
 	requires_target = true
 	description = "Removes X health."
 
-func execute(user: Node, targets: Array = []):
+func effect(user: Node, card, targets: Array = []):
 	if(self_applying):
 		user.healthRemoval(removal_amount)
 		return

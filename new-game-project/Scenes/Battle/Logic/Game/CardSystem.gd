@@ -1,13 +1,13 @@
 extends Node
 
-var enemy
+var timer
 var player
 var gamestate
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	enemy = $"../../Enemy"
 	player = $"../../Player"
+	timer = $"../Countdown"
 	gamestate = $"../GameStateLoop"
 	pass # Replace with function body.
 
@@ -18,37 +18,34 @@ func _process(delta: float) -> void:
 
 func useSetup(card:Card, user, targets):
 	for effect in card.setups:
-		effect.execute(user, [targets])
+		effect.execute(user, card, [targets])
 
-func useCard(card:Card, user ,targets):
-	if user == null or user.name != "enemy":
-		if isCardUsable(card):
-			if gamestate.currentPhase == GameEnums.PHASE.MAIN:
-				player.use_plan_points(card.cost)
-				for effect in card.effects:
-					if effect.requires_target:
-						# Prompt player for targets
-						pass
-					else:
-						effect.execute(player, [enemy]) # TODO: Hard-coded right now
-				afterCardUse(card, player)
-			elif gamestate.currentPhase == GameEnums.PHASE.PLAN:
-				increasePlan(card)
-				gamestate.phaseDeterminer("planUsed")
-				
-			elif gamestate.currentPhase == GameEnums.PHASE.INTERACT:
-				player.increaseBlock(card.block)
-			return true
-		else:
-			return false
-	else:
-		for effect in card.effects:
-			if effect.requires_target:
+func useCard(card, user ,targets):
+	var lastEffectSucceeded = true
+	if gamestate.currentPhase == GameEnums.PHASE.MAIN:
+		for effect in card.cardData.effects:
+			if effect.requires_last_effect_condition:
 				# Prompt player for targets
-				pass
+				if(lastEffectSucceeded):
+					lastEffectSucceeded = effect.execute(player, card, [timer])
+				
 			else:
-				effect.execute(enemy, [player]) # TODO: Hard-coded right now
-		afterCardUse(card, user)
+				lastEffectSucceeded = effect.execute(player, card, [timer]) # TODO: Hard-coded right now
+		afterCardUse(card.cardData, player)
+
+	return true
+
+func useDiscardFromDeckEffect(user, card:Card ,targets):
+	var lastEffectSucceeded = true
+	for effect in card.deckDiscardEffects:
+			if effect.requires_last_effect_condition:
+				# Prompt player for targets
+				if(lastEffectSucceeded):
+					lastEffectSucceeded = effect.execute(player, card, [timer])
+				
+			else:
+				lastEffectSucceeded = effect.execute(player, card, [timer]) # TODO: Hard-coded right now
+
 
 func isCardUsable(card:Card):
 	var usable = true
@@ -74,18 +71,10 @@ func afterCardUse(card:Card, user:Node):
 	var discardPile = user.get_node("DiscardPile")
 	discardPile.add_to_pile(card)
 	
-func useWeaponCard(card:WeaponCard, user:Node, targets):
-	for effect in card.onAttackEffects:
-		if effect.requires_target:
-			# Prompt player for targets
-			pass
-		else:
-			effect.execute(player, [enemy]) # TODO: Hard-coded right now
 
+func useAbility():
 	pass
-
-func increasePlan(card):
-	player.ppup()
+	
 
 func endOfTurnChecks(nameOfPlayerBeingChecked):
 	var playerChecked
@@ -93,9 +82,7 @@ func endOfTurnChecks(nameOfPlayerBeingChecked):
 	
 	if nameOfPlayerBeingChecked == player.name:
 		playerChecked = player
-		opposingPlayer = enemy
-	else:
-		playerChecked = enemy
+
 		opposingPlayer = player
 	
 	var hand = playerChecked.get_node("Hand").get_cards()
@@ -109,3 +96,8 @@ func endOfTurnChecks(nameOfPlayerBeingChecked):
 			effect.execute(playerChecked, [card])
 		
 		print(hand)
+
+
+func _on_ability_ability_used():
+	player.get_node("Deck").draw()
+	pass # Replace with function body.

@@ -20,36 +20,29 @@ func _process(delta: float) -> void:
 	pass
 
 func makedeck():
-	Make_Player_Deck()
-	Make_Enemy_Deck()
+	#Make_Player_Deck()
 	
-func Make_Enemy_Deck():
-	var generatedDeck = []
-	var temp = 0;
-	for i in 50:
-		temp = RandomNumberGenerator.new().randi_range(0,2)
-		if temp == 0:
-			generatedDeck.append($"../Game/CardDatabase".get_card("MF001"))
-		if temp == 1:
-			generatedDeck.append($"../Game/CardDatabase".get_card("MF002"))
-		if temp == 2:
-			generatedDeck.append($"../Game/CardDatabase".get_card("MF003"))
-
-	generatedDeck.shuffle()
-	enemyDeck.set_deck(generatedDeck)
+	Load_Player_Deck()
 	pass
+
 
 func Make_Player_Deck():
 	var generatedDeck = []
 	var temp = 0;
 	for i in 50:
-		temp = RandomNumberGenerator.new().randi_range(0,2)
-		if temp == 0:
-			generatedDeck.append($"../Game/CardDatabase".get_card("A00001"))
-		elif temp == 1:
-			generatedDeck.append($"../Game/CardDatabase".get_card("A00002"))
-		elif temp == 2:
-			generatedDeck.append($"../Game/CardDatabase".get_card("A00003"))
+		temp = RandomNumberGenerator.new().randi_range(0,4)
+		generatedDeck.append($"../Game/CardDatabase".get_card("A" + str(temp + 1)))
+		
 	generatedDeck.shuffle()
 	playerDeck.set_deck(generatedDeck)
 	
+func Load_Player_Deck():
+	var generatedDeck = []
+	
+	var loadedDeck = Gamestate.get_deck()
+	
+	for cardId in loadedDeck:
+		generatedDeck.append($"../Game/CardDatabase".get_card(cardId))
+	
+	generatedDeck.shuffle()
+	playerDeck.set_deck(generatedDeck)

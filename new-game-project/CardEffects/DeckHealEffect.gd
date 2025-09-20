@@ -8,9 +8,9 @@ func _init():
 	#target_type = GameEnums.TargetType.CREATURE
 	description = "Adds top card from deck to Health"
 
-func execute(user: Node, targets: Array = []):
+func effect(user: Node, card, targets: Array = []):
 	for eachHeal in healAmount:
-		var card = user.get_node("Deck").remove_top_card()
-		if card:
-			user.get_node("HealthArea").add_to_top(card)
+		var c = user.get_node("Deck").remove_top_card()
+		if c:
+			user.get_node("HealthArea").add_to_top(c)
 			user.update_health()

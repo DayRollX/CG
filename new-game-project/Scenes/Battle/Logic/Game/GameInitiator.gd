@@ -29,19 +29,11 @@ func set_up_game():
 	for i in range(0, 5):
 		playerDeck.draw()
 	
-	print_debug("Adding Life Cards")
-	
-	for i in range(0, 5):
-		playerHealth.add_to_top(playerDeck.remove_top_card())
-	
-	playerHealth.view_life()
-	
-	$"../../player".update_health()
-	
 	main_loop()
 	pass
 
 func main_loop():
 	
 	turnSignal.emit(turnOfPlayer)
+	#$"../Countdown"._start_timer()
 	pass

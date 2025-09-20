@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://y4xan4tm3ekw"]
+
+[ext_resource type="Script" uid="uid://c2nupy6vcl8dj" path="res://CardEffects/CardEffect.gd" id="1_g65d4"]
+[ext_resource type="Script" uid="uid://bljoc8wsu46kd" path="res://CardEffects/DiscardConditionDrawEffect.gd" id="2_4ctix"]
+[ext_resource type="Script" uid="uid://nkocb6vtuyro" path="res://Cards/Card.gd" id="3_iixl2"]
+
+[sub_resource type="Resource" id="Resource_nhv80"]
+script = ExtResource("2_4ctix")
+drawAmount = 2
+amountInDiscard = 5
+isGreaterCondition = false
+effect_type = 0
+target_type = 0
+requires_target = false
+requires_last_effect_condition = false
+description = ""
+metadata/_custom_type_script = "uid://bljoc8wsu46kd"
+
+[resource]
+script = ExtResource("3_iixl2")
+id = "T3"
+name = "Accelerate"
+description = "If there are less than 5 cards in your discard Draw 2"
+cost = 0
+block = 0
+types = Array[String]([])
+interactable = false
+effects = Array[ExtResource("1_g65d4")]([SubResource("Resource_nhv80")])
+setups = Array[ExtResource("1_g65d4")]([])
+endOfTurnEffects = Array[ExtResource("1_g65d4")]([])

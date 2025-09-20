@@ -33,3 +33,5 @@ func remove_card(card:Node2D):
 		cards[selectedCard].set_card_original_position(Vector2(100+(selectedCard * 60),600))
 		cards[selectedCard].refresh()
 	
+func get_cards():
+	return cards

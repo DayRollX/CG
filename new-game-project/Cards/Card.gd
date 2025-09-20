@@ -17,6 +17,7 @@ class_name Card
 @export var effects: Array[CardEffect]
 @export var setups: Array[CardEffect]
 @export var endOfTurnEffects: Array[CardEffect]
+@export var deckDiscardEffects: Array[CardEffect]
 
 func get_cost():
 	

@@ -1,25 +1,26 @@
-[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://cde0viudo1fsd"]
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://bi4bchxtax3nc"]
 
 [ext_resource type="Script" uid="uid://c2nupy6vcl8dj" path="res://CardEffects/CardEffect.gd" id="1_83sho"]
 [ext_resource type="Script" uid="uid://nkocb6vtuyro" path="res://Cards/Card.gd" id="2_1c6k3"]
-[ext_resource type="Script" uid="uid://c8utoot3m60bh" path="res://CardEffects/SetupEffects/AttackUpEffect.gd" id="2_5046g"]
+[ext_resource type="Script" uid="uid://o36ioay5uc7" path="res://CardEffects/ChargeAbilityEffect.gd" id="2_5046g"]
 
 [sub_resource type="Resource" id="Resource_5cvva"]
 script = ExtResource("2_5046g")
-powerUpAmount = 1
+chargeAmount = 5
 effect_type = 0
 target_type = 0
 requires_target = false
+requires_last_effect_condition = false
 description = ""
-metadata/_custom_type_script = "uid://c8utoot3m60bh"
+metadata/_custom_type_script = "uid://o36ioay5uc7"
 
 [resource]
 script = ExtResource("2_1c6k3")
-id = "PS1001"
+id = "T8"
 name = "Charge"
-description = "+1 to Damage this turn"
-cost = 3
-block = 1
+description = "Charge Ability 5 seconds"
+cost = 0
+block = 0
 types = Array[String]([])
 interactable = false
 effects = Array[ExtResource("1_83sho")]([SubResource("Resource_5cvva")])

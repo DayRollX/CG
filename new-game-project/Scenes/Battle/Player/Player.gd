@@ -26,9 +26,7 @@ func _ready() -> void:
 	discard = $DiscardPile
 	healthArea = $HealthArea
 	attackPower = 0
-	update_health()
-	update_planning_plan()
-	update_block()
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,31 +37,21 @@ func damage(damageAmount):
 	for i in range(0, damageAmount):
 		healthArea.damage(hand)
 			
-	update_health()
 	
 func healthRemoval(removalAmount):
 	for i in range(0, removalAmount):
 		healthArea.removal(hand)
-	update_health()
 	
 func heal(healAmount):
 	health += healAmount
-	update_health()
+
 	
 func ppup(rested = false):
 	maxPlanningPoints = maxPlanningPoints + 1
 	if(!rested):
 		planningPoints = planningPoints + 1
-	update_planning_plan()
 	
-func update_health():
-	$"HPLabel/HP".text = str(healthArea.get_health_amount())
-	
-func update_planning_plan():
-	$"PlanningLabel/PP".text = str(planningPoints) + " / " + str(maxPlanningPoints)
-	
-func update_block():
-	$BlockLabel/PP.text = str(block)
+
 	
 func mainTurnPhase(target):
 	if(target == name):
@@ -86,8 +74,6 @@ func startTurnPhase(target):
 	if(target == name):
 		turn_reset()
 		print_debug("START TURN PLAYER")
-		update_planning_plan()
-		update_block()
 		timesAbleToAttack = 1
 		endPhaseSignal.emit("")
 		
@@ -103,18 +89,15 @@ func interactPhase(target):
 		
 func increaseBlock(amount):
 	block = block + amount
-	update_block()
 
 func get_pp():
 	return planningPoints
 	
 func use_plan_points(cost):
 	planningPoints = planningPoints - cost
-	update_planning_plan()
 	
 func heal_plan_points(cost):
 	planningPoints = planningPoints + cost
-	update_planning_plan()
 	
 func turn_reset():
 	planningPoints = maxPlanningPoints

@@ -6,10 +6,11 @@
 
 [sub_resource type="Resource" id="Resource_77til"]
 script = ExtResource("2_14grg")
-drawAmount = 3
+drawAmount = 1
 effect_type = 0
 target_type = 0
 requires_target = false
+requires_last_effect_condition = false
 description = ""
 metadata/_custom_type_script = "uid://d34fi71jhkwk7"
 
@@ -18,7 +19,7 @@ script = ExtResource("1_ld75e")
 id = "A00002"
 name = "Test Draw"
 description = "Draw 1 Cards"
-cost = 6
+cost = 0
 block = 0
 types = Array[String]([])
 interactable = false

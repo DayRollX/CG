@@ -10,6 +10,7 @@ damage_amount = 1
 effect_type = 0
 target_type = 0
 requires_target = false
+requires_last_effect_condition = false
 description = ""
 metadata/_custom_type_script = "uid://68pbt1eh34ad"
 

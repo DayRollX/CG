@@ -7,7 +7,7 @@ func _init():
 	requires_target = true
 	description = "Deals X damage."
 
-func execute(user: Node, targets: Array = []):
+func effect(user: Node, card, targets: Array = []):
 	
 	if targets.is_empty():
 		push_warning("DealDamageEffect: No targets provided.")

@@ -18,7 +18,6 @@ func _on_button_pressed() -> void:
 	print("Discard Pile (Player):")
 	for card in d.cards:
 		print(card.name)
-	print("Discard Pile (Enemy):")
-	for card in e.cards:
-		print(card.name)
+
+
 	pass # Replace with function body.

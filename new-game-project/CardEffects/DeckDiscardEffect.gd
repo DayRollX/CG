@@ -9,7 +9,7 @@ func _init():
 	requires_target = true
 	description = "Deals X damage."
 
-func execute(user: Node, targets: Array = []):
-	for target in targets:
-		for discard in discardAmount:
-			target.get_node("Deck").discard()
+func effect(user: Node, card, targets: Array = []):
+	for discard in discardAmount:
+		didFinish = user.get_node("Deck").discard() and didFinish
+	

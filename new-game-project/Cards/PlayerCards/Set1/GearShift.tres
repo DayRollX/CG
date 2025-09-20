@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Card" load_steps=7 format=3 uid="uid://bdn25sqk0b4x0"]
+
+[ext_resource type="Script" uid="uid://c2nupy6vcl8dj" path="res://CardEffects/CardEffect.gd" id="1_epnri"]
+[ext_resource type="Script" uid="uid://nkocb6vtuyro" path="res://Cards/Card.gd" id="2_1mqs2"]
+[ext_resource type="Script" uid="uid://ku02jfgrdprb" path="res://CardEffects/RandomHandDiscard.gd" id="2_xadr0"]
+[ext_resource type="Script" uid="uid://d34fi71jhkwk7" path="res://CardEffects/DrawCardEffect.gd" id="3_xadr0"]
+
+[sub_resource type="Resource" id="Resource_do24n"]
+script = ExtResource("2_xadr0")
+discard_amount = 2
+WholeHand = false
+effect_type = 0
+target_type = 0
+requires_target = false
+requires_last_effect_condition = false
+description = ""
+metadata/_custom_type_script = "uid://ku02jfgrdprb"
+
+[sub_resource type="Resource" id="Resource_duulh"]
+script = ExtResource("3_xadr0")
+drawAmount = 2
+effect_type = 0
+target_type = 0
+requires_target = false
+requires_last_effect_condition = false
+description = ""
+metadata/_custom_type_script = "uid://d34fi71jhkwk7"
+
+[resource]
+script = ExtResource("2_1mqs2")
+id = "T4"
+name = "Gear Shift"
+description = "Discard 2 random cards. Draw 2 Cards."
+cost = 0
+block = 0
+types = Array[String]([])
+interactable = false
+effects = Array[ExtResource("1_epnri")]([SubResource("Resource_do24n"), SubResource("Resource_duulh")])
+setups = Array[ExtResource("1_epnri")]([])
+endOfTurnEffects = Array[ExtResource("1_epnri")]([])
