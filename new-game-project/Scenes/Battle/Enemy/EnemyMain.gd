@@ -49,7 +49,7 @@ func mainTurnPhase(target):
 		if currentCard.cardData.interactable:
 			endPhaseSignal.emit("interact")
 		else:
-			cardSystem.useCard(currentCard.cardData, self, $"../Player")
+			cardSystem.useCard(currentCard, self, $"../Player")
 			currentCard.remove_card()
 			print_debug("Main Phase")
 			endPhaseSignal.emit("")
@@ -59,14 +59,14 @@ func mainTurnPhase(target):
 func interactPhase(target):
 	if(target == name):
 		print_debug("Interact Phase Override enemy")
-		cardSystem.useSetup(currentCard.cardData, self, $"../Player")
+		cardSystem.useSetup(currentCard, self, $"../Player")
 		update_health()
 		update_attack()
 		#endPhaseSignal.emit("")
 		
 func interactResultPhase(target):
 	if(target == name):
-		cardSystem.useCard(currentCard.cardData, self, $"../Player")
+		cardSystem.useCard(currentCard, self, $"../Player")
 		currentCard.remove_card()
 		print_debug("Interact Result Phase Override enemy")
 		endPhaseSignal.emit("end enemy main")

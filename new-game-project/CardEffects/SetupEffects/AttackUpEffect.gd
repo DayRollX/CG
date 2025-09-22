@@ -9,6 +9,9 @@ func _init():
 	requires_target = true
 	description = "Deals X damage."
 
-func execute(user: Node, targets: Array = []):
+func execute(user: Node, card, targets: Array = []):
 	user.powerup(powerUpAmount)
+	
 	print("powered up %s damage to %s" % [powerUpAmount, user.name])
+	
+	

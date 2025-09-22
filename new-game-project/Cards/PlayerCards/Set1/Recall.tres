@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Card" load_steps=7 format=3 uid="uid://cc86oywib4u7t"]
+
+[ext_resource type="Script" uid="uid://c2nupy6vcl8dj" path="res://CardEffects/CardEffect.gd" id="1_6cyqp"]
+[ext_resource type="Script" uid="uid://c1yimj552mpc5" path="res://CardEffects/DiscardPileToDeckRandomEffect.gd" id="2_hnmb2"]
+[ext_resource type="Script" uid="uid://db6n88nm8dfp3" path="res://CardEffects/TimeEffects/TimeAdjustEffect.gd" id="3_pfdy8"]
+[ext_resource type="Script" uid="uid://nkocb6vtuyro" path="res://Cards/Card.gd" id="4_6g5ht"]
+
+[sub_resource type="Resource" id="Resource_qgolv"]
+script = ExtResource("2_hnmb2")
+amountToMove = 2
+effect_type = 0
+target_type = 0
+requires_target = false
+requires_last_effect_condition = false
+description = ""
+metadata/_custom_type_script = "uid://c1yimj552mpc5"
+
+[sub_resource type="Resource" id="Resource_ms5s0"]
+script = ExtResource("3_pfdy8")
+time_change_amount = 4
+effect_type = 0
+target_type = 0
+requires_target = false
+requires_last_effect_condition = true
+description = ""
+metadata/_custom_type_script = "uid://db6n88nm8dfp3"
+
+[resource]
+script = ExtResource("4_6g5ht")
+id = "T6"
+name = "Recall"
+description = "Place 2 random cards from discard into deck: +4 Seconds."
+cost = 0
+block = 0
+types = Array[String]([])
+interactable = false
+effects = Array[ExtResource("1_6cyqp")]([SubResource("Resource_qgolv"), SubResource("Resource_ms5s0")])
+setups = Array[ExtResource("1_6cyqp")]([])
+endOfTurnEffects = Array[ExtResource("1_6cyqp")]([])
+deckDiscardEffects = Array[ExtResource("1_6cyqp")]([])

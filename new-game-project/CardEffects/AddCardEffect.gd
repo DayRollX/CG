@@ -12,7 +12,7 @@ func _init():
 	requires_target = true
 	description = "Adds a card to the target's hand"
 
-func execute(user: Node, targets: Array = []):
+func effect(user: Node, card, targets: Array = []):
 	for target:Node in targets:
 		for i in range(0, Amount):
 			var s = cardObj.instantiate()
@@ -23,3 +23,4 @@ func execute(user: Node, targets: Array = []):
 			var hand = target.get_node("Hand")
 			hand.add_card(target.get_node("../Game/CardDatabase").get_card(CardIDToAdd))
 			pass
+			

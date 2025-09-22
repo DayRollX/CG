@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://p2qhvwpr8q6x"]
+
+[ext_resource type="Script" uid="uid://dyclrhgqsrnf" path="res://Scenes/Temp/templosescreen.gd" id="1_pi8ml"]
+
+[node name="TempLoseScreen" type="Node2D"]
+script = ExtResource("1_pi8ml")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 570.0
+offset_top = 350.0
+offset_right = 635.0
+offset_bottom = 381.0
+text = "Restart"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 579.0
+offset_top = 204.0
+offset_right = 619.0
+offset_bottom = 227.0
+text = "Fail..."
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

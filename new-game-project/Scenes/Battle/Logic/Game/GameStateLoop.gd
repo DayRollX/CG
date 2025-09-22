@@ -19,11 +19,9 @@ signal endTurnPhase
 func _ready() -> void:
 	print_debug("READY on Loop")
 	
-	$"../../Enemy".connect("endPhaseSignal", phaseDeterminer)
 	$"../../Player".connect("endPhaseSignal", phaseDeterminer)
 	$"../../UI/EndTurnButton".connect("endButtonSignal",phaseDeterminer)
 	
-	players.get_or_add("enemy", $"../../Enemy")
 	players.get_or_add("player", $"../../Player")
 	
 	$"../GameInitiator".connect("turnSignal", startPhaseFunc)
@@ -34,13 +32,10 @@ func phaseDeterminer(override):
 	if override == "":
 		match currentPhase:
 			GameEnums.PHASE.START:
-				drawPhaseFunc()
+				mainPhaseFunc()
 				
 			GameEnums.PHASE.DRAW:
 				planPhaseFunc()
-				
-			GameEnums.PHASE.PLAN:
-				preMainPhaseFunc()
 				
 			GameEnums.PHASE.PRE_MAIN:
 				mainPhaseFunc()
@@ -109,6 +104,18 @@ func preMainPhaseFunc():
 func mainPhaseFunc():
 	currentPhase = GameEnums.PHASE.MAIN
 	mainPhase.emit(currentPlayer)
+	if(Gamestate.get_level() == 0):
+		$"../Countdown".start_timer(180)
+	if(Gamestate.get_level() == 1):
+		$"../Countdown".start_timer(150)
+	if(Gamestate.get_level() == 2):
+		$"../Countdown".start_timer(120)
+	if(Gamestate.get_level() == 3):
+		$"../Countdown".start_timer(90)
+	if(Gamestate.get_level() == 4):
+		$"../Countdown".start_timer(60)
+	if(Gamestate.get_level() == 5):
+		$"../Countdown".start_timer(30)
 	pass
 	
 func interactPhaseFunc():

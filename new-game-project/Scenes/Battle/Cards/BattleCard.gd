@@ -44,7 +44,7 @@ func attempt_to_use():
 	if  target_area and target_area.global_position.distance_to(global_position) < 100:  # Adjust range as needed
 		print_debug("You are trying use this")
 		emit_signal("used_object")
-		if(cardSystem.useCard(cardData, $".".get_node("Player"), [$".".get_node("Enemy")])):
+		if(cardSystem.useCard(self, $".".get_node("Player"), [$".".get_node("Enemy")])):
 			remove_card()
 		else:
 			global_position = original_position
@@ -81,9 +81,8 @@ func createCard(card):
 	updateCard()
 
 func updateCard():
-	$Cost.text = str(cardData.cost)
 	$Name.text = str(cardData.name)
-	$Block.text = str(cardData.block)
+	$Description.text = str(cardData.description)
 	cost = cardData.cost
 
 func remove_card():

@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="MHCG"
-run/main_scene="res://Scenes/Battle/BattleMain.tscn"
+config/name="Belo"
+config/version="0.0.1"
+run/main_scene="uid://cidtfsbmnp6un"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Gamestate="*res://Gamestate/Gamestate.gd"
 
 [display]
 

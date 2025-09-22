@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="Card" load_steps=9 format=3 uid="uid://dyu1jhqhor8bh"]
+
+[ext_resource type="Script" uid="uid://c2nupy6vcl8dj" path="res://CardEffects/CardEffect.gd" id="1_gc4by"]
+[ext_resource type="Script" uid="uid://bv03432m05pya" path="res://CardEffects/ShuffleEffect.gd" id="2_ij52u"]
+[ext_resource type="Script" uid="uid://dwbc5lddiiha7" path="res://CardEffects/RandomHandToDeckEffect.gd" id="2_xvgc2"]
+[ext_resource type="Script" uid="uid://d34fi71jhkwk7" path="res://CardEffects/DrawCardEffect.gd" id="3_ij52u"]
+[ext_resource type="Script" uid="uid://nkocb6vtuyro" path="res://Cards/Card.gd" id="3_xvgc2"]
+
+[sub_resource type="Resource" id="Resource_22fet"]
+script = ExtResource("2_xvgc2")
+AmountToMove = 1
+WholeHand = true
+ToBottom = true
+effect_type = 0
+target_type = 0
+requires_target = false
+requires_last_effect_condition = false
+description = ""
+metadata/_custom_type_script = "uid://dwbc5lddiiha7"
+
+[sub_resource type="Resource" id="Resource_egxa5"]
+script = ExtResource("2_ij52u")
+effect_type = 0
+target_type = 0
+requires_target = false
+requires_last_effect_condition = false
+description = ""
+metadata/_custom_type_script = "uid://bv03432m05pya"
+
+[sub_resource type="Resource" id="Resource_xvgc2"]
+script = ExtResource("3_ij52u")
+drawAmount = 3
+effect_type = 0
+target_type = 0
+requires_target = false
+requires_last_effect_condition = false
+description = ""
+metadata/_custom_type_script = "uid://d34fi71jhkwk7"
+
+[resource]
+script = ExtResource("3_xvgc2")
+id = "T7"
+name = "Quick Fix"
+description = "Shuffle your hand into your deck draw 3."
+cost = 0
+block = 0
+types = Array[String]([])
+interactable = false
+effects = Array[ExtResource("1_gc4by")]([SubResource("Resource_22fet"), SubResource("Resource_egxa5"), SubResource("Resource_xvgc2")])
+setups = Array[ExtResource("1_gc4by")]([])
+endOfTurnEffects = Array[ExtResource("1_gc4by")]([])
+deckDiscardEffects = Array[ExtResource("1_gc4by")]([])

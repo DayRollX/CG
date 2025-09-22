@@ -5,4 +5,4 @@ static func determine_turn():
 	#if chosenNumber == 0:
 	#	return "player"
 	#return "enemy"
-	return "enemy"
+	return "player"

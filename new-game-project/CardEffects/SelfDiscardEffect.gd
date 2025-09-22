@@ -6,7 +6,7 @@ func _init():
 	#target_type = GameEnums.TargetType.CREATURE
 	description = "Discard itself"
 
-func execute(user: Node, targets: Array = []):
+func effect(user: Node, card, targets: Array = []):
 	for target in targets:
 		target.remove_card()
 	pass

@@ -7,6 +7,7 @@ var cardSets = [
 	"res://Cards/MonsterCards/Flame",
 	"res://Cards/MonsterCards",
 	"res://Cards/PlayerCards/Set1",
+	"res://Cards/PlayerCards/Set2",
 	"res://Cards/CommonCards"
 ]
 

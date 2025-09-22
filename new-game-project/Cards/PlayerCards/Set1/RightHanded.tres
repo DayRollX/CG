@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="Card" load_steps=9 format=3 uid="uid://dljhafqegx310"]
+
+[ext_resource type="Script" uid="uid://c2nupy6vcl8dj" path="res://CardEffects/CardEffect.gd" id="1_ls8hl"]
+[ext_resource type="Script" uid="uid://nkocb6vtuyro" path="res://Cards/Card.gd" id="2_3l3vq"]
+[ext_resource type="Script" uid="uid://cmqigab4sqhfh" path="res://CardEffects/DiscardCardPositionEffect.gd" id="2_e51yi"]
+[ext_resource type="Script" uid="uid://d34fi71jhkwk7" path="res://CardEffects/DrawCardEffect.gd" id="3_sjg10"]
+[ext_resource type="Script" uid="uid://o36ioay5uc7" path="res://CardEffects/ChargeAbilityEffect.gd" id="4_g6g3m"]
+
+[sub_resource type="Resource" id="Resource_wydyy"]
+script = ExtResource("2_e51yi")
+discard_amount = 1
+discardLeft = false
+effect_type = 0
+target_type = 0
+requires_target = false
+requires_last_effect_condition = false
+description = ""
+metadata/_custom_type_script = "uid://cmqigab4sqhfh"
+
+[sub_resource type="Resource" id="Resource_rraof"]
+script = ExtResource("3_sjg10")
+drawAmount = 1
+effect_type = 0
+target_type = 0
+requires_target = false
+requires_last_effect_condition = true
+description = ""
+metadata/_custom_type_script = "uid://d34fi71jhkwk7"
+
+[sub_resource type="Resource" id="Resource_q5h5o"]
+script = ExtResource("4_g6g3m")
+chargeAmount = 2
+fully = false
+effect_type = 0
+target_type = 0
+requires_target = false
+requires_last_effect_condition = true
+description = ""
+metadata/_custom_type_script = "uid://o36ioay5uc7"
+
+[resource]
+script = ExtResource("2_3l3vq")
+id = "T10"
+name = "Right Handed"
+description = "Discard Rightmost card: Draw 1 and Charge Ability 2 Seconds"
+cost = 0
+block = 0
+types = Array[String]([])
+interactable = false
+effects = Array[ExtResource("1_ls8hl")]([SubResource("Resource_wydyy"), SubResource("Resource_rraof"), SubResource("Resource_q5h5o")])
+setups = Array[ExtResource("1_ls8hl")]([])
+endOfTurnEffects = Array[ExtResource("1_ls8hl")]([])
+deckDiscardEffects = Array[ExtResource("1_ls8hl")]([])
