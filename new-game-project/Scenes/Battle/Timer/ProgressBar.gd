@@ -115,12 +115,4 @@ func set_max_time(time):
 	
 func change_max_time(time):
 	max_value = time
-
-
-# --- Freeze Time Function ---
-func freeze_time(duration: float):
-	"""Freezes the timer for a specified duration (in seconds)."""
-	pause_timer()
-	await get_tree().create_timer(duration).timeout
-	start_timer()
 	
