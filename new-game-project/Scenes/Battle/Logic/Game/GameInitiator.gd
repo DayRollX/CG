@@ -35,5 +35,5 @@ func set_up_game():
 func main_loop():
 	
 	turnSignal.emit(turnOfPlayer)
-	#$"../Countdown"._start_timer()
+	#$"../Countdown".start_timer()
 	pass

@@ -7,6 +7,7 @@
 [sub_resource type="Resource" id="Resource_5cvva"]
 script = ExtResource("2_5046g")
 chargeAmount = 5
+fully = false
 effect_type = 0
 target_type = 0
 requires_target = false
@@ -26,3 +27,4 @@ interactable = false
 effects = Array[ExtResource("1_83sho")]([SubResource("Resource_5cvva")])
 setups = Array[ExtResource("1_83sho")]([])
 endOfTurnEffects = Array[ExtResource("1_83sho")]([])
+deckDiscardEffects = Array[ExtResource("1_83sho")]([])

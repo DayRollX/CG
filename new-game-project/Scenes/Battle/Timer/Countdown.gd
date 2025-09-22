@@ -17,7 +17,7 @@ func _ready():
 		timer_bar.connect("time_up", _on_TimerBar_time_up)
 		timer_bar.connect("interval_reached", _on_TimerBar_interval_reached)
 
-func _start_timer(startTime = 0):
+func start_timer(startTime = 0):
 	if startTime > 0:
 		timer_bar.set_max_time(startTime)
 	timer_bar.start_timer()

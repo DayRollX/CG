@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnclsae8k5qo4"]
+
+[ext_resource type="Script" uid="uid://dkhsumapn13pr" path="res://Scenes/Temp/TempGameEvent.gd" id="1_k1nvt"]
+
+[node name="GameEvent" type="Node2D"]
+script = ExtResource("1_k1nvt")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 229.0
+offset_top = 480.0
+offset_right = 334.0
+offset_bottom = 511.0
+text = "I choose this"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 831.0
+offset_top = 480.0
+offset_right = 936.0
+offset_bottom = 511.0
+text = "I choose this"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 170.0
+offset_top = 272.0
+offset_right = 442.0
+offset_bottom = 295.0
+text = "Remove %card_id% from your deck"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 768.0
+offset_top = 271.0
+offset_right = 1040.0
+offset_bottom = 294.0
+text = "Add %card_id% from your deck"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

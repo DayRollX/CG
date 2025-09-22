@@ -68,6 +68,7 @@ func _process(delta):
 func start_timer():
 	"""Starts or resumes the timer."""
 	_is_running = true
+	
 
 func pause_timer():
 	"""Pauses the timer."""
@@ -108,8 +109,9 @@ func _send_time(delta):
 	emit_signal("delta_time",delta)
 	
 func set_max_time(time):
+	start_time = time
 	max_value = time
-	value = time
+	_current_time = time
 	
 func change_max_time(time):
 	max_value = time

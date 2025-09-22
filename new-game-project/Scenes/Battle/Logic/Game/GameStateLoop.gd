@@ -104,7 +104,18 @@ func preMainPhaseFunc():
 func mainPhaseFunc():
 	currentPhase = GameEnums.PHASE.MAIN
 	mainPhase.emit(currentPlayer)
-	$"../Countdown"._start_timer(180)
+	if(Gamestate.get_level() == 0):
+		$"../Countdown".start_timer(180)
+	if(Gamestate.get_level() == 1):
+		$"../Countdown".start_timer(150)
+	if(Gamestate.get_level() == 2):
+		$"../Countdown".start_timer(120)
+	if(Gamestate.get_level() == 3):
+		$"../Countdown".start_timer(90)
+	if(Gamestate.get_level() == 4):
+		$"../Countdown".start_timer(60)
+	if(Gamestate.get_level() == 5):
+		$"../Countdown".start_timer(30)
 	pass
 	
 func interactPhaseFunc():

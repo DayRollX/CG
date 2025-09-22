@@ -48,3 +48,4 @@ interactable = false
 effects = Array[ExtResource("1_lwhns")]([SubResource("Resource_jttvm"), SubResource("Resource_08jio"), SubResource("Resource_u2f51")])
 setups = Array[ExtResource("1_lwhns")]([])
 endOfTurnEffects = Array[ExtResource("1_lwhns")]([])
+deckDiscardEffects = Array[ExtResource("1_lwhns")]([])

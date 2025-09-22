@@ -37,3 +37,4 @@ interactable = false
 effects = Array[ExtResource("1_6cyqp")]([SubResource("Resource_qgolv"), SubResource("Resource_ms5s0")])
 setups = Array[ExtResource("1_6cyqp")]([])
 endOfTurnEffects = Array[ExtResource("1_6cyqp")]([])
+deckDiscardEffects = Array[ExtResource("1_6cyqp")]([])
