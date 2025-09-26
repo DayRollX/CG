@@ -29,6 +29,19 @@ var _current_time : float = 0.0
 var _is_running : bool = false
 var _processed_intervals : Array = []
 
+# --- Freeze Feature ---
+var _is_frozen: bool = false
+
+func freeze_time(duration: float):
+	"""Freezes the timer and all timer-based events for a set duration (seconds)."""
+	if _is_frozen:
+		return
+	_is_frozen = true
+	pause_timer()
+	await get_tree().create_timer(duration).timeout
+	_is_frozen = false
+	start_timer()
+
 
 # --- Godot Functions ---
 func _ready():
@@ -41,11 +54,12 @@ func _ready():
 	value = _current_time
 	# You can start the timer automatically or call start() from another script.
 
+
 func _process(delta):
 	"""
 	Called every frame. Updates the timer and checks for events.
 	"""
-	if not _is_running:
+	if not _is_running or _is_frozen:
 		return
 
 	# Decrement the timer
@@ -53,8 +67,9 @@ func _process(delta):
 	value = _current_time
 
 	# Check for configured event intervals
-	_check_for_intervals()
-	_send_time(delta)
+	if not _is_frozen:
+		_check_for_intervals()
+		_send_time(delta)
 
 	# Check if time has run out
 	if _current_time <= 0:
