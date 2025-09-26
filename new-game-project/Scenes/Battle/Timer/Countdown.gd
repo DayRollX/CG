@@ -26,13 +26,16 @@ func adjust_time(adjustment):
 	timer_bar.add_time(adjustment)
 
 # --- Signal Handlers ---
+
+
 func _on_TimerBar_time_up():
 	"""
 	This function is called when the timer runs out.
 	"""
 	print("Time is up! Game Over.")
-	# Add your game over logic here, for example:
-	get_tree().change_scene_to_file("res://Scenes/Temp/TempLoseScreen.tscn")
+	var gameStateLoop = get_node("../Logic/Game/GameStateLoop")
+	if gameStateLoop:
+		gameStateLoop.emit_signal("lose_condition_met")
 
 
 func _on_TimerBar_interval_reached(event_name: String):
