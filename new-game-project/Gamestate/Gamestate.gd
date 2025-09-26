@@ -12,7 +12,7 @@ func _generate_deck():
 func _make_player_deck():
 	var temp = 0;
 	for i in 50:
-		temp = RandomNumberGenerator.new().randi_range(0,9)
+		temp = RandomNumberGenerator.new().randi_range(0,8)
 		_generatedDeck.append(("T" + str(temp + 1)))
 
 func start_new_game():

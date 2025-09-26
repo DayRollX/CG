@@ -8,21 +8,12 @@
 [sub_resource type="Resource" id="Resource_56egq"]
 script = ExtResource("2_ekwny")
 amountToMove = 2
-effect_type = 0
-target_type = 0
-requires_target = false
-requires_last_effect_condition = false
-description = ""
 metadata/_custom_type_script = "uid://c1yimj552mpc5"
 
 [sub_resource type="Resource" id="Resource_0quvk"]
 script = ExtResource("3_i4shk")
 discardAmount = 5
-effect_type = 0
-target_type = 0
-requires_target = false
 requires_last_effect_condition = true
-description = ""
 metadata/_custom_type_script = "uid://bjojf8s2jh17d"
 
 [resource]
@@ -30,10 +21,4 @@ script = ExtResource("4_hvbi4")
 id = "A1"
 name = "Keen Eye"
 description = "Put 2 cards from discard to bottom of deck: discard top 5 cards of deck"
-cost = 0
-block = 0
-types = Array[String]([])
-interactable = false
 effects = Array[ExtResource("1_s7co0")]([SubResource("Resource_56egq"), SubResource("Resource_0quvk")])
-setups = Array[ExtResource("1_s7co0")]([])
-endOfTurnEffects = Array[ExtResource("1_s7co0")]([])

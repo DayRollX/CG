@@ -6,9 +6,11 @@ extends Node2D
 # --- Node References ---
 # Assign your TimerBar node to this in the Inspector.
 var timer_bar 
+var gameStateLoop
 
 # --- Godot Functions ---
 func _ready():
+	gameStateLoop = get_node("../GameStateLoop")
 	timer_bar = $ProgressBar
 	"""
 	Connects to the TimerBar's signals.
@@ -33,7 +35,7 @@ func _on_TimerBar_time_up():
 	This function is called when the timer runs out.
 	"""
 	print("Time is up! Game Over.")
-	var gameStateLoop = get_node("../Logic/Game/GameStateLoop")
+
 	if gameStateLoop:
 		gameStateLoop.emit_signal("lose_condition_met")
 
