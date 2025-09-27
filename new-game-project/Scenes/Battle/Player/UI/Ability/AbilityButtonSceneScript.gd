@@ -2,6 +2,10 @@ extends Node
 
 signal ability_used
 
+func _timer_time_delta(time):
+	$ProgressBar.value += time
+	pass # Replace with function body.
+
 
 func _on_button_pressed():
 	if($ProgressBar.value >= 10):
@@ -14,7 +18,3 @@ func charge_ability(amount):
 	
 func charge_ability_fully():
 	$ProgressBar.value = $ProgressBar.max_value
-
-
-func _on_progress_bar_game_delta_time(time):
-	$ProgressBar.value += time

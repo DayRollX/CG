@@ -6,7 +6,13 @@
 
 [sub_resource type="Resource" id="Resource_cspb6"]
 script = ExtResource("2_t4iij")
+chargeAmount = 0
 fully = true
+effect_type = 0
+target_type = 0
+requires_target = false
+requires_last_effect_condition = false
+description = ""
 metadata/_custom_type_script = "uid://o36ioay5uc7"
 
 [resource]
@@ -14,4 +20,11 @@ script = ExtResource("2_nhm1w")
 id = "A4"
 name = "I got this!"
 description = "Fully Charge Ability"
+cost = 0
+block = 0
+types = Array[String]([])
+interactable = false
 effects = Array[ExtResource("1_x0uuh")]([SubResource("Resource_cspb6")])
+setups = Array[ExtResource("1_x0uuh")]([])
+endOfTurnEffects = Array[ExtResource("1_x0uuh")]([])
+deckDiscardEffects = Array[ExtResource("1_x0uuh")]([])

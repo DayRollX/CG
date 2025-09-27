@@ -7,6 +7,11 @@
 [sub_resource type="Resource" id="Resource_ag8mo"]
 script = ExtResource("2_cy84d")
 time_change_amount = 5
+effect_type = 0
+target_type = 0
+requires_target = false
+requires_last_effect_condition = false
+description = ""
 metadata/_custom_type_script = "uid://db6n88nm8dfp3"
 
 [resource]
@@ -14,4 +19,11 @@ script = ExtResource("3_8rn30")
 id = "A3"
 name = "S. Bug"
 description = "If discarded from your deck +5 seconds"
+cost = 0
+block = 0
+types = Array[String]([])
+interactable = false
+effects = Array[ExtResource("1_7mife")]([])
+setups = Array[ExtResource("1_7mife")]([])
+endOfTurnEffects = Array[ExtResource("1_7mife")]([])
 deckDiscardEffects = Array[ExtResource("1_7mife")]([SubResource("Resource_ag8mo")])

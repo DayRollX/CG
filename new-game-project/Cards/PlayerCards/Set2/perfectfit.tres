@@ -7,6 +7,11 @@
 [sub_resource type="Resource" id="Resource_e0kap"]
 script = ExtResource("2_jvrvb")
 drawAmount = 1
+effect_type = 0
+target_type = 0
+requires_target = false
+requires_last_effect_condition = false
+description = ""
 metadata/_custom_type_script = "uid://d34fi71jhkwk7"
 
 [resource]
@@ -14,4 +19,11 @@ script = ExtResource("3_8umod")
 id = "A2"
 name = "Perfect Fit"
 description = "If discarded from your deck draw 1"
+cost = 0
+block = 0
+types = Array[String]([])
+interactable = false
+effects = Array[ExtResource("1_bxec5")]([])
+setups = Array[ExtResource("1_bxec5")]([])
+endOfTurnEffects = Array[ExtResource("1_bxec5")]([])
 deckDiscardEffects = Array[ExtResource("1_bxec5")]([SubResource("Resource_e0kap")])

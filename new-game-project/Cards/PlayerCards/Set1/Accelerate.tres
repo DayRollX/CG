@@ -8,6 +8,12 @@
 script = ExtResource("2_4ctix")
 drawAmount = 2
 amountInDiscard = 5
+isGreaterCondition = false
+effect_type = 0
+target_type = 0
+requires_target = false
+requires_last_effect_condition = false
+description = ""
 metadata/_custom_type_script = "uid://bljoc8wsu46kd"
 
 [resource]
@@ -15,4 +21,11 @@ script = ExtResource("3_iixl2")
 id = "T3"
 name = "Accelerate"
 description = "If there are less than 5 cards in your discard Draw 2"
+cost = 0
+block = 0
+types = Array[String]([])
+interactable = false
 effects = Array[ExtResource("1_g65d4")]([SubResource("Resource_nhv80")])
+setups = Array[ExtResource("1_g65d4")]([])
+endOfTurnEffects = Array[ExtResource("1_g65d4")]([])
+deckDiscardEffects = Array[ExtResource("1_g65d4")]([])

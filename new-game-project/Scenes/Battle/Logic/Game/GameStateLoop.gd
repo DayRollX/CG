@@ -1,21 +1,9 @@
 extends Node
 
 var players = {}
-	
-# Centralized win/lose handling
-func handle_win():
-	get_tree().change_scene_to_file("res://Scenes/Temp/TempWinnerScreen.tscn")
-
-func handle_loss():
-	get_tree().change_scene_to_file("res://Scenes/Temp/TempLoseScreen.tscn")
-
 
 var currentPlayer
 var currentPhase
-
-# Win/Lose signals for centralized handling
-signal win_condition_met
-signal lose_condition_met
 
 signal startPhase
 signal drawPhase
@@ -27,18 +15,17 @@ signal interactResultPhase
 signal postMainPhase
 signal endTurnPhase
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print_debug("READY on Loop")
+	
 	$"../../Player".connect("endPhaseSignal", phaseDeterminer)
 	$"../../UI/EndTurnButton".connect("endButtonSignal",phaseDeterminer)
+	
 	players.get_or_add("player", $"../../Player")
+	
 	$"../GameInitiator".connect("turnSignal", startPhaseFunc)
-
-	# Connect win/lose signals to handlers
-	self.connect("win_condition_met", Callable(self, "handle_win"))
-	self.connect("lose_condition_met", Callable(self, "handle_loss"))
+	pass # Replace with function body.
 
 func phaseDeterminer(override):
 	await wait_seconds(1)
@@ -159,3 +146,8 @@ func wait_seconds(seconds: float) -> void:
 	timer.start()
 	await timer.timeout
 	timer.queue_free()  # Clean up the timer after it's done
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
