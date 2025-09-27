@@ -159,8 +159,3 @@ func wait_seconds(seconds: float) -> void:
 	timer.start()
 	await timer.timeout
 	timer.queue_free()  # Clean up the timer after it's done
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

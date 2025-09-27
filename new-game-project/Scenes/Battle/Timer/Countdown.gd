@@ -8,6 +8,8 @@ extends Node2D
 var timer_bar 
 var gameStateLoop
 
+signal time_stop_change
+
 # --- Godot Functions ---
 func _ready():
 	gameStateLoop = get_node("../GameStateLoop")
@@ -29,6 +31,8 @@ func adjust_time(adjustment):
 
 # --- Signal Handlers ---
 
+func freeze_time(time):
+	timer_bar.freeze_time(time)
 
 func _on_TimerBar_time_up():
 	"""
@@ -39,6 +43,8 @@ func _on_TimerBar_time_up():
 	if gameStateLoop:
 		gameStateLoop.emit_signal("lose_condition_met")
 
+func _on_time_freeze_change(isFrozen: bool, currentTime, duration):
+	time_stop_change.emit(isFrozen, currentTime, duration)
 
 func _on_TimerBar_interval_reached(event_name: String):
 	"""

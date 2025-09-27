@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dcgvffln1lomp"]
+[gd_scene load_steps=21 format=3 uid="uid://dcgvffln1lomp"]
 
 [ext_resource type="Script" uid="uid://bcyt6el3ny3c4" path="res://Scenes/Battle/BattleMain.gd" id="1_ry7r7"]
 [ext_resource type="Script" uid="uid://ptccfic0p1av" path="res://Scenes/Battle/Timer/Countdown.gd" id="2_m25wa"]
@@ -11,8 +11,6 @@
 [ext_resource type="Script" uid="uid://csp2357d6y50t" path="res://Scenes/Battle/Player/Player.gd" id="7_e8t26"]
 [ext_resource type="Script" uid="uid://bihtm8lq46dae" path="res://Scenes/Battle/Timer/TimerLabel.gd" id="7_h1n3k"]
 [ext_resource type="Script" uid="uid://cdqaddjtsaomg" path="res://Scenes/Battle/Player/UI/Hand/Hand.gd" id="9_e6y41"]
-[ext_resource type="Script" uid="uid://bgluuskguvoag" path="res://Scenes/Battle/Timer/FreezeCountdown.gd" id="9_grm5u"]
-[ext_resource type="Script" uid="uid://cjqp2gfqoloxt" path="res://Scenes/Battle/Timer/FreezeProgressBar.gd" id="10_jco8v"]
 [ext_resource type="Script" uid="uid://c3ibenwvm1cdu" path="res://Scenes/Temp/tempCardSpawner.gd" id="10_sam83"]
 [ext_resource type="Script" uid="uid://c3hu21iq0grh4" path="res://Scenes/Battle/Player/UI/Deck/Deck.gd" id="10_ta70i"]
 [ext_resource type="Script" uid="uid://chluwldvw5myi" path="res://Scenes/Temp/tempDeck.gd" id="11_kwgbk"]
@@ -62,30 +60,9 @@ value = 100.0
 show_percentage = false
 script = ExtResource("7_3jhpw")
 
-[node name="FreezeCountdown" type="Node2D" parent="Game"]
-visible = false
-position = Vector2(500, 65)
-script = ExtResource("9_grm5u")
-
-[node name="CountdownTimerLabel" type="RichTextLabel" parent="Game/FreezeCountdown"]
-offset_right = 203.0
-offset_bottom = 24.0
-text = "60"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("7_h1n3k")
-
-[node name="ProgressBar" type="ProgressBar" parent="Game/FreezeCountdown"]
-offset_right = 203.0
-offset_bottom = 27.0
-value = 100.0
-show_percentage = false
-script = ExtResource("10_jco8v")
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="TurnLabel" type="RichTextLabel" parent="UI"]
-visible = false
 offset_left = 484.0
 offset_top = 39.0
 offset_right = 545.0
@@ -93,7 +70,6 @@ offset_bottom = 67.0
 text = "Turn: "
 
 [node name="TurnText" type="RichTextLabel" parent="UI"]
-visible = false
 offset_left = 535.0
 offset_top = 40.0
 offset_right = 836.0
@@ -177,8 +153,7 @@ text = "Check Discard"
 [node name="TempDeckMaker" type="Node" parent="."]
 script = ExtResource("11_kwgbk")
 
-[connection signal="time_stop_change" from="Game/Countdown" to="Game/FreezeCountdown" method="_on_countdown_time_stop_change"]
-[connection signal="game_delta_time" from="Game/Countdown/ProgressBar" to="Player/Ability" method="_on_progress_bar_game_delta_time"]
+[connection signal="delta_time" from="Game/Countdown/ProgressBar" to="Player/Ability" method="_timer_time_delta"]
 [connection signal="ability_used" from="Player/Ability" to="Game/CardSystem" method="_on_ability_ability_used"]
 [connection signal="pressed" from="TempSpawner/Button" to="TempSpawner" method="_on_button_pressed"]
 [connection signal="pressed" from="TempDiscardViewer/Button" to="TempDiscardViewer" method="_on_button_pressed"]
