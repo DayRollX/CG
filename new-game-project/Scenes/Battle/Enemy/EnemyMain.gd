@@ -10,11 +10,6 @@ func _ready():
 	update_attack()
 	attackPower = 0
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func damage(damageAmount):
 	health -= damageAmount
 	update_health()

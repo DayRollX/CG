@@ -10,8 +10,7 @@ signal time_up
 # Emitted when a configured time interval is reached.
 # Passes the event name associated with the interval.
 signal interval_reached(event_name)
-
-signal delta_time
+signal game_delta_time
 
 
 # --- Exports (Configurable in the Inspector) ---
@@ -31,16 +30,18 @@ var _processed_intervals : Array = []
 
 # --- Freeze Feature ---
 var _is_frozen: bool = false
+var _freeze_time = 0.0
+var _freeze_duration = 0.0
 
 func freeze_time(duration: float):
 	"""Freezes the timer and all timer-based events for a set duration (seconds)."""
-	if _is_frozen:
-		return
+	_freeze_duration = duration
+	_freeze_time = 0.0
+
+	$".."._on_time_freeze_change(true, _freeze_duration, _freeze_duration)
 	_is_frozen = true
-	pause_timer()
-	await get_tree().create_timer(duration).timeout
-	_is_frozen = false
-	start_timer()
+
+
 
 
 # --- Godot Functions ---
@@ -59,7 +60,14 @@ func _process(delta):
 	"""
 	Called every frame. Updates the timer and checks for events.
 	"""
-	if not _is_running or _is_frozen:
+	if not _is_running:
+		return
+		
+	if _is_frozen:
+		_freeze_time += delta
+		if(_freeze_time >= _freeze_duration):
+			_is_frozen = false
+			$".."._on_time_freeze_change(false, 0, _freeze_duration)
 		return
 
 	# Decrement the timer
@@ -121,7 +129,7 @@ func _check_for_intervals():
 			_processed_intervals.append(time_left)
 
 func _send_time(delta):
-	emit_signal("delta_time",delta)
+	emit_signal("game_delta_time",delta)
 	
 func set_max_time(time):
 	start_time = time
