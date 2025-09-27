@@ -9,32 +9,16 @@
 [sub_resource type="Resource" id="Resource_6sm3o"]
 script = ExtResource("2_knye1")
 drawAmount = 3
-effect_type = 0
-target_type = 0
-requires_target = false
-requires_last_effect_condition = false
-description = ""
 metadata/_custom_type_script = "uid://d34fi71jhkwk7"
 
 [sub_resource type="Resource" id="Resource_rslfq"]
 script = ExtResource("3_rah7v")
 discard_amount = 3
-WholeHand = false
-effect_type = 0
-target_type = 0
-requires_target = false
-requires_last_effect_condition = false
-description = ""
 metadata/_custom_type_script = "uid://ku02jfgrdprb"
 
 [sub_resource type="Resource" id="Resource_6ihy3"]
 script = ExtResource("4_1inxo")
 EffectsToChooseFrom = Array[ExtResource("1_5cirs")]([SubResource("Resource_6sm3o"), SubResource("Resource_rslfq")])
-effect_type = 0
-target_type = 0
-requires_target = false
-requires_last_effect_condition = false
-description = ""
 metadata/_custom_type_script = "uid://1uqvgmxl44ro"
 
 [resource]
@@ -42,11 +26,4 @@ script = ExtResource("2_afdhl")
 id = "A5"
 name = "Quick Thought"
 description = "Random: Draw 3 or Discard 3"
-cost = 0
-block = 0
-types = Array[String]([])
-interactable = false
 effects = Array[ExtResource("1_5cirs")]([SubResource("Resource_6ihy3")])
-setups = Array[ExtResource("1_5cirs")]([])
-endOfTurnEffects = Array[ExtResource("1_5cirs")]([])
-deckDiscardEffects = Array[ExtResource("1_5cirs")]([])

@@ -6,9 +6,13 @@ extends Node2D
 # --- Node References ---
 # Assign your TimerBar node to this in the Inspector.
 var timer_bar 
+var gameStateLoop
+
+signal time_stop_change
 
 # --- Godot Functions ---
 func _ready():
+	gameStateLoop = get_node("../GameStateLoop")
 	timer_bar = $ProgressBar
 	"""
 	Connects to the TimerBar's signals.
@@ -26,14 +30,21 @@ func adjust_time(adjustment):
 	timer_bar.add_time(adjustment)
 
 # --- Signal Handlers ---
+
+func freeze_time(time):
+	timer_bar.freeze_time(time)
+
 func _on_TimerBar_time_up():
 	"""
 	This function is called when the timer runs out.
 	"""
 	print("Time is up! Game Over.")
-	# Add your game over logic here, for example:
-	get_tree().change_scene_to_file("res://Scenes/Temp/TempLoseScreen.tscn")
 
+	if gameStateLoop:
+		gameStateLoop.emit_signal("lose_condition_met")
+
+func _on_time_freeze_change(isFrozen: bool, currentTime, duration):
+	time_stop_change.emit(isFrozen, currentTime, duration)
 
 func _on_TimerBar_interval_reached(event_name: String):
 	"""
