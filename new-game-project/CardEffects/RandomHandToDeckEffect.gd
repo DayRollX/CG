@@ -24,7 +24,8 @@ func effect(user: Node, card, targets: Array = []):
 		deck = user.get_node("Deck")
 		
 		if(cards.size() > 0):
-			var chosenCard = cards.pick_random()
+			var idx = RandomService.randi_range(0, cards.size() - 1)
+			var chosenCard = cards[idx]
 
 			if(ToBottom):
 				deck.add_to_bottom(chosenCard.cardData)

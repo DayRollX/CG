@@ -30,10 +30,10 @@ func Make_Player_Deck():
 	var generatedDeck = []
 	var temp = 0;
 	for i in 50:
-		temp = RandomNumberGenerator.new().randi_range(0,4)
+		temp = RandomService.randi_range(0,4)
 		generatedDeck.append($"../Game/CardDatabase".get_card("A" + str(temp + 1)))
 		
-	generatedDeck.shuffle()
+	RandomService.shuffle_array(generatedDeck)
 	playerDeck.set_deck(generatedDeck)
 	
 func Load_Player_Deck():
@@ -44,5 +44,5 @@ func Load_Player_Deck():
 	for cardId in loadedDeck:
 		generatedDeck.append($"../Game/CardDatabase".get_card(cardId))
 	
-	generatedDeck.shuffle()
+	RandomService.shuffle_array(generatedDeck)
 	playerDeck.set_deck(generatedDeck)

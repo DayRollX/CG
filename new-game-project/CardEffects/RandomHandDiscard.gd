@@ -26,7 +26,8 @@ func effect(user: Node, card, targets: Array = []):
 
 			cards = cards.filter(func(node): return node.id != card.id)
 
-			var chosenCard = cards.pick_random()
+			var idx = RandomService.randi_range(0, cards.size() - 1)
+			var chosenCard = cards[idx]
 
 			discardpile.add_to_pile(chosenCard.cardData)
 			hand.remove_card(chosenCard)

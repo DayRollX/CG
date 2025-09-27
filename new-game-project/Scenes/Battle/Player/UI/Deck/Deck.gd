@@ -20,7 +20,7 @@ func set_deck(givenCards):
 	cards = givenCards
 
 func shuffle():
-	cards.shuffle()
+	RandomService.shuffle_array(cards)
 
 
 
