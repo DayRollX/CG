@@ -9,7 +9,7 @@ func _init():
 	requires_target = true
 	description = "Deals X damage."
 
-func execute(user: Node, card, targets: Array = []):
+func effect(user: Node, card, targets: Array = []):
 	for target in targets:
-		#if target is Creature: # Assuming you have a Creature node/class
 		target.adjust_time(time_change_amount)
+	

@@ -9,7 +9,8 @@ func _init():
 
 func effect(user: Node, card, targets: Array = []):
 	var numberOfEffects = EffectsToChooseFrom.size()
-	var chosenNumber = randi_range(0, numberOfEffects-1)
+	
+	var chosenNumber = RandomService.randi_range(0, numberOfEffects-1)
 	
 	EffectsToChooseFrom.get(chosenNumber).execute(user, card, targets)
 		
