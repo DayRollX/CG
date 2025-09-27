@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cidtfsbmnp6un"]
+[gd_scene load_steps=5 format=3 uid="uid://cidtfsbmnp6un"]
 
 [ext_resource type="Script" uid="uid://bexgwgqgl1fxg" path="res://Scenes/Game/MainMenu/MainMenu.gd" id="1_lk1ll"]
 
@@ -15,6 +15,22 @@ offset_right = 652.0
 offset_bottom = 368.0
 text = "Start
 "
+
+[node name="SeedLabel" type="Label" parent="."]
+offset_left = 400.0
+offset_top = 240.0
+offset_right = 520.0
+offset_bottom = 260.0
+text = "Seed (7 chars):"
+
+[node name="SeedInput" type="LineEdit" parent="."]
+offset_left = 520.0
+offset_top = 235.0
+offset_right = 700.0
+offset_bottom = 265.0
+text = ""
+max_length = 7
+placeholder_text = "Random if empty"
 
 [node name="Title" type="Label" parent="."]
 offset_left = 632.0

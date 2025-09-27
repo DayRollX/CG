@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Gamestate="*res://Gamestate/Gamestate.gd"
+RandomService="*res://Common/Utilities/RandomService.gd"
 
 [display]
 

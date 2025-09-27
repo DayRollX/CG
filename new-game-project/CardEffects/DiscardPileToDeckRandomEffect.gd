@@ -15,7 +15,9 @@ func effect(user: Node, card, targets: Array = []):
 			var deck = user.get_node("Deck")
 			var discardpile = user.get_node("DiscardPile")
 
-			var pickedcard = discardpile.remove(randi() % discardpile.get_count())
+			var count = discardpile.get_count()
+			var idx = RandomService.randi_range(0, max(0, count - 1))
+			var pickedcard = discardpile.remove(idx)
 			deck.add_to_bottom(pickedcard)
 	else:
 		didFinish = false
