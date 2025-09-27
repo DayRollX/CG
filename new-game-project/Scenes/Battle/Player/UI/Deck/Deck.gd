@@ -22,8 +22,6 @@ func set_deck(givenCards):
 func shuffle():
 	RandomService.shuffle_array(cards)
 
-
-
 func remove_top_card():
 	var card = cards.pop_front()
 	deckCount.set_text(str(cards.size()))

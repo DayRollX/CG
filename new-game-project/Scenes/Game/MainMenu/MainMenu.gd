@@ -4,8 +4,9 @@ extends Node
 
 func _ready():
 	# Pre-fill with a random 7-char seed and allow user to edit
-	var proposed := RandomService.generate_seed_string()
-	seed_input.text = proposed
+	#var proposed := RandomService.generate_seed_string()
+	#seed_input.text = proposed
+	pass
 
 
 func _on_start_button_pressed():

@@ -7,6 +7,5 @@ func _init():
 	description = "Shuffles hand"
 
 func effect(user: Node, card, targets: Array = []):
-
 	var deck = user.get_node("Deck")
 	deck.shuffle()
