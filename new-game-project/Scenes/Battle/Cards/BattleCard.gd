@@ -49,8 +49,15 @@ func attempt_to_use():
 		else:
 			global_position = original_position
 	else:
-		# Return to the original position if not used
-		global_position = original_position
+		# Not used: allow drag-to-reorder within the hand
+		var parent_hand = get_parent()
+		if parent_hand and parent_hand.has_method("handle_reorder_drop"):
+			parent_hand.handle_reorder_drop(self, global_position)
+			# original_position is updated by the hand; refresh to snap
+			refresh()
+		else:
+			# Fallback: return to the original position
+			global_position = original_position
 	pass
 	
 func set_target_area(area: Node2D):
